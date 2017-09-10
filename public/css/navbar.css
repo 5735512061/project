@@ -1,0 +1,96 @@
+
+/***************************
+1. customized Navigation you may remove this code
+***************************/
+nav.navbar-inverse ul.navbar-nav a { color: #f14444; border-style: solid; border-width: 0 0 2px 0; border-color: #fff; }
+nav.navbar-inverse ul.navbar-nav a { color: #f14444; border-style: solid; border-width: 0 0 2px 0; border-color: #fff; }
+nav.navbar-inverse ul.navbar-nav a:hover,
+nav.navbar-inverse ul.navbar-nav a:visited,
+nav.navbar-inverse ul.navbar-nav a:focus,
+nav.navbar-inverse ul.navbar-nav a:active { background: #434444; }
+nav.navbar-inverse ul.navbar-nav a:hover { border-color: #f14444; }
+nav.navbar-inverse li.divider { background: #ccc; }
+
+/***************************
+1. Navigation
+***************************/
+
+.caret-up {
+  width: 0; 
+  height: 0; 
+  border-left: 4px solid rgba(0, 0, 0, 0);
+  border-right: 4px solid rgba(0, 0, 0, 0);
+  border-bottom: 4px solid;
+
+  display: inline-block;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+/***************************
+2. Navigation
+***************************/
+a.list-group-item {
+  height:auto;
+  min-height:220px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+a.list-group-item.active small {
+  color:#fff;
+  
+}
+
+.stars {
+  margin:20px auto 1px;    
+}
+
+
+/* ==================================================
+   6. top login
+================================================== */
+
+
+ #login-dp{
+        min-width: 250px;
+        padding: 14px 14px 0;
+        overflow:hidden;
+        background-color:rgba(255,255,255,.8);
+      }
+      #login-dp .help-block{
+        font-size:12px    
+      }
+      #login-dp .bottom{
+        background-color:rgba(255,255,255,.8);
+        border-top:1px solid #ddd;
+        clear:both;
+        padding:14px;
+      }
+      #login-dp .social-buttons{
+        margin:12px 0    
+      }
+      #login-dp .social-buttons a{
+        width: 49%;
+      }
+      #login-dp .form-group {
+        margin-bottom: 10px;
+      }
+      .btn-fb{
+        color: #fff;
+        background-color:#3b5998;
+      }
+      .btn-fb:hover{
+        color: #fff;
+        background-color:#496ebc 
+      }
+      .btn-tw{
+        color: #fff;
+        background-color:#55acee;
+      }
+      .btn-tw:hover{
+        color: #fff;
+        background-color:#59b5fa;
+      }
+      .bg-primary {
+        background-color: #f05f40;
+        color: #fff;
+      }

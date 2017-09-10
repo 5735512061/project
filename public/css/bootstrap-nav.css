@@ -1,0 +1,30 @@
+.header {
+  background: orange;
+  color: #fff;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand>img {
+  width: 250px;
+  height: 51px;
+  
+}
+
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+.navbar-nav>li>a {
+  color: black !important;
+  padding-bottom: 12px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+   /*  background-color:#3385ff !important; */
+    color:#aaa8a7 !important;
+  cursor:pointer;
+}
