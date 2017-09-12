@@ -30,6 +30,8 @@ Route::get('/product','Products\\ProductsController@index');
 Route::get('/adduser','Addusers\\AddusersController@index');
 Route::get('/data','Datas\\DatasController@index');
 
+Route::post('/act','ActsController@act');
+
 Route::get('/home1', function () {
     return view('home1');
 });
@@ -37,6 +39,16 @@ Route::get('/home1', function () {
 Route::get('/data', function () {
     return view('data');
 });
+
+Route::get('/out_of_stock', function () {
+    return view('out_of_stock');
+});
+
+Route::get('/exp', function () {
+    return view('exp');
+});
+
+
 
 
 

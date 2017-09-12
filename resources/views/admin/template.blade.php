@@ -15,11 +15,11 @@
   	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
   	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
 
-  	<style>
+ <!--  	<style>
       body{
         background-color: #85e085;
       }
-    </style>
+    </style> -->
 </head>
 <body>
 <header>

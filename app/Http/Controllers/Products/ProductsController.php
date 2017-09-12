@@ -100,4 +100,11 @@ class ProductsController extends Controller
         return redirect('products');
     }
 
+    // public function act(Request $request, $id){
+    //     $product = Product::findOrFail($id);
+    //     $product->pro_amount += $request->amount;
+    //     $product->save();
+    //     return redirect('products');
+    // }
+
 }

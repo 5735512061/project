@@ -87,9 +87,6 @@
                             <div class="form-group">
                               จำนวน :<input type="number" class="form-control" id="pro_amount" name="pro_amount" placeholder="ป้อนจำนวนสินค้า">
                             </div>
-                            <div class="form-group">
-                              รายละเอียด :<textarea name="pro_detail" class="form-control" id="pro_detail" rows="4" placeholder="ป้อนรายละเอียดสินค้า (ถ้ามี)"></textarea>
-                            </div>
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <button id="submit" name="submit" class="btn btn-primary">เพิ่มสินค้า</button>

@@ -47,7 +47,6 @@
                             <th class="text-center">วันผลิต</th>
                             <th class="text-center">วันหมดอายุ</th>
                             <th class="text-center">จำนวน</th>
-                            <th class="text-center">รายละเอียด</th>
                             <th class="text-center"><span  style="padding-left:5px" ><a class='btn btn-primary btn-xs' href="products/create"><span class="glyphicon glyphicon-plus"></span> เพิ่มสินค้า</a></th>
                         </tr>
                     </thead>
@@ -63,8 +62,11 @@
                                               <td>{{$col->pro_sale_price}}</td>
                                               <td>{{$col->pro_maf_date}}</td>
                                               <td>{{$col->pro_ex_date}}</td>
-                                              <td>{{$col->pro_amount}}<input class="" id="id1" type="number" min="0" max="3000" required><p id="demo"></p></td>
-                                              <td>{{$col->pro_detail}}</td>
+                                              <td>{{$col->pro_amount}}
+                                                <!-- div class="text-center">
+                                                    <input min="0" max="3000" type="number" name="amount" value="{{$col->pro_amount}}">
+                                                </div> -->
+                                              </td>
                                               <form method="POST" action="products/{{$col->id}}">
                                                <td class="text-center"><a class='btn btn-info btn-xs' href="products/{{$col->id}}/edit"><span class="glyphicon glyphicon-edit"></span> แก้ไข</a> 
                                                <input type="hidden" name="_method" value="Delete">
@@ -85,13 +87,3 @@
         </div>
     </div>
 </div>
-<script>
-function myFunction() {
-    var inpObj = document.getElementById("id1");
-    if (inpObj.checkValidity() == false) {
-        document.getElementById("demo").innerHTML = inpObj.validationMessage;
-    } else {
-        document.getElementById("demo").innerHTML = "Input OK";
-    } 
-} 
-</script>

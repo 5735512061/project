@@ -68,10 +68,6 @@
                               จำนวน :<input type="number" class="form-control" value="{{$product->pro_amount}}" id="pro_amount" name="pro_amount" placeholder="ป้อนจำนวนสินค้า">
                             </div>
                             <div class="form-group">
-                              รายละเอียด :<textarea name="pro_detail" class="form-control"  id="pro_detail" rows="4" placeholder="ป้อนรายละเอียดสินค้า (ถ้ามี)">{{$product->pro_detail}}</textarea>
-                            </div>
-                           
-                            <div class="form-group">
                             <input type="hidden" name="_method" value="PUT">
                             {{csrf_field()}}  
                                 <button id="submit" name="submit" class="btn btn-primary">อัพเดตสินค้า</button>

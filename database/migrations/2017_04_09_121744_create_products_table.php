@@ -22,7 +22,6 @@ class CreateProductsTable extends Migration
             $table->date('pro_maf_date');
             $table->date('pro_ex_date');
             $table->integer('pro_amount');
-            $table->string('pro_detail',1000);
             $table->timestamps();
         });
     }
