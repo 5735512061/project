@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="panel-group" id="accordion">
-                            <div class="panel panel-default">
+                            <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Menu</a>
@@ -17,12 +17,12 @@
                                         <table class="table">
                                             <tr>
                                                 <td>
-                                                    <a href="">สินค้าขายดี</a>
+                                                    <a href="{{url('bestseller')}}">สินค้าขายดี</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="{{url('out_of_stock')}}">สินค้ากำลังหมดคลัง</a>
+                                                    <a href="{{url('out_of_stock')}}">สินค้าใกล้หมดคลัง</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
 
-                            <div class="panel panel-default">
+                            <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Account</a>
@@ -46,7 +46,7 @@
                                         <table class="table">
                                             <tr>
                                                 <td>
-                                                    <a href="/data">ข้อมูลส่วนตัว</a>
+                                                    <a href="{{url('data')}}">ข้อมูลส่วนตัว</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
 
-                            <div class="panel panel-default">
+                            <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Reports</a>
@@ -78,13 +78,6 @@
                                             <tr>
                                                 <td>
                                                     <a href="">รายละเอียดสินค้า</a><span><div class="pull-right">
-                                                    <a href="" class="btn btn-xs btn-primary">Export PDF</a>
-                                                    </div></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                   </span><a href="">ประวัติการขาย</a><span><div class="pull-right">
                                                     <a href="" class="btn btn-xs btn-primary">Export PDF</a>
                                                     </div></span>
                                                 </td>

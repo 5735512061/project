@@ -21,7 +21,36 @@
         <div class="navbar-header">
             <a href="home1"><img alt="KasetWMS Logo" src="img/head.jpg"></a>
         </div>
-
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="{{url('/home1')}}">หน้าแรก</a>
+          </li>
+          @if (!Auth::guest())
+           <li>
+            <a href="{{url('/product')}}">คลังสินค้า</a>
+          </li>
+          @endif
+           <li>
+            <a href="{{url('#')}}">บทความ</a>
+          </li>
+           <li>
+            <a href="{{url('#')}}">กระดานถาม-ตอบ</a>
+          </li>
+        </ul>
+        <div class="col-sm-6 col-md-3">
+            <ul class="nav navbar-nav">
+              <li>
+              <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+                </form>
+              </li>
+            </ul>
+          </div>
         <ul class="nav navbar-nav navbar-right">
           @if (Auth::guest())
           <li>
@@ -190,26 +219,17 @@
                   <nav class="navbar navbar-default">
                       <div class="container-fluid">
                         <div class="navbar-header">
-                          
+                           <br><marquee behavior="alternate" onmouseout="this.start()" onmouseover="this.stop()" width="880">** KASET WMS ระบบคลังสินค้าเกษตร เป็นเว็บไซต์ที่ใช้ในการจัดการคลังสินค้าทางการเกษตร **</marquee>
                         </div>
-                        <ul class="nav navbar-nav">
-                            <li><a href="home1">หน้าแรก</a></li>
-                            @if (!Auth::guest())
-                            <li><a href="product">คลังสินค้า</a></li>
-                            @endif
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">บทความ</a></li>
-                            <li><a href="#">กระดานถาม-ตอบ</a></li>
-                        </ul>
+                       
                       </div>
                   </nav>
 
               </div>
 
                 <div class="panel-body">
-                   <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
-                  <center><img class="img-responsive" src="img/img.jpg"></center>
+                   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                  <!-- <center><img class="img-responsive" src="img/img.jpg"></center> -->
                 </div>
 
                 <div class="panel-footer">

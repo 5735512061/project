@@ -5,14 +5,21 @@ namespace App\Http\Controllers\Products;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
+use Validator;
+use DB;
 
 class ProductsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $curr_raw_time;
+    private $curr_date;
+    private $curr_date_time;
+    public function __construct() {
+        date_default_timezone_set('Asia/Bangkok');
+        $this->curr_raw_time = getdate();
+        $this->curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
+        $this->curr_date_time = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'] . ' ' . $this->curr_raw_time['hours'] . ':' . $this->curr_raw_time['minutes'] . ':' . $this->curr_raw_time['seconds'];
+    }
+
     public function index(Request $request)
     {
         // $products = Product::all();
@@ -100,11 +107,32 @@ class ProductsController extends Controller
         return redirect('products');
     }
 
-    // public function act(Request $request, $id){
-    //     $product = Product::findOrFail($id);
-    //     $product->pro_amount += $request->amount;
-    //     $product->save();
-    //     return redirect('products');
-    // }
+    public function exp(Request $request){
+           
+        $curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
+     
+        $ages = DB::table('products')->get();
+        $expire_count = 0;
+        $exp = array();
+        foreach ($ages as $col) {
+            if ((strtotime($col->pro_ex_date) - strtotime($curr_date)) / (60*60*24) <= 3) array_push($exp, $col);
+        }
+        return view('exp')->with('products',$exp);
+    }
+
+    public function outofstock(){
+        $out = array();
+        $amount = DB::table('products')->where('pro_amount', '<', 30)->get();
+        foreach ($amount as $item) {
+            
+            array_push($out, $item);
+        }
+        
+        return View('out_of_stock')->with('products', $out);
+    }
+
+    public function bestseller(){
+        return view('bestseller');
+    }
 
 }

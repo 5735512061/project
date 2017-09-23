@@ -6,7 +6,7 @@
                   </div>
                 </div>
               </div> -->
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-2">
             <div class="panel panel-default">
@@ -28,8 +28,8 @@
                   </nav>
 
               </div>
-
-                <div class="panel-body">
+ -->
+               <!--  <div class="panel-body"> -->
                    <div class="container">
                   <div class="row">
                       <div class="col-md-9">
@@ -39,6 +39,7 @@
                     <table class="table table-striped table-bordered table-list">
                     <thead>
                         <tr>
+                            <th class="text-center">ลำดับ</th>
                             <th class="text-center">รหัสสินค้า</th>
                             <th class="text-center">ชื่อสินค้า</th>
                             <th class="text-center">ประเภท</th>
@@ -50,11 +51,10 @@
                             <th class="text-center"><span  style="padding-left:5px" ><a class='btn btn-primary btn-xs' href="products/create"><span class="glyphicon glyphicon-plus"></span> เพิ่มสินค้า</a></th>
                         </tr>
                     </thead>
-                    <!--{{ $index =0 }} -->
                                     @foreach($products as $index => $col)
                                       <tbody>
                                             <tr>
-                                              <!-- <td>{{$NUM_PAGE*($page-1) + $index+1}}</td> -->
+                                              <td>{{$NUM_PAGE*($page-1) + $index+1}}</td>
                                               <td>{{$col->id}}</td>
                                               <td>{{$col->pro_name}}</td>
                                               <td>{{$col->pro_type}}</td>
