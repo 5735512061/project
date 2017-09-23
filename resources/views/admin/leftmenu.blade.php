@@ -78,7 +78,7 @@
                                             <tr>
                                                 <td>
                                                     <a href="">รายละเอียดสินค้า</a><span><div class="pull-right">
-                                                    <a href="" class="btn btn-xs btn-primary">Export PDF</a>
+                                                    <a href="{{url('pdf')}}" class="btn btn-xs btn-primary">Export PDF</a>
                                                     </div></span>
                                                 </td>
                                             </tr>

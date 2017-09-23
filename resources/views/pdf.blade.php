@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Order</title>
+	<title>KASET WMS</title>
 	<style>
         @font-face {
             font-family: 'THSarabunNew';
@@ -41,6 +41,52 @@
 	</style>
 </head>
 <body>
-    fgjlfz
+<center>
+     <div class="container">
+                  <div class="row">
+                      <div class="col-md-9">
+                        <!--  <div class="row col-md-6 col-md-offset-2 custyle"> -->
+                        <div class="table-responsive">
+                          <div class="panel panel-default panel-table"> 
+                    <table class="table table-striped table-bordered table-list">
+                    <thead>
+                        <tr>
+                            
+                            <th class="text-center">รหัสสินค้า</th>
+                            <th class="text-center">ชื่อสินค้า</th>
+                            <th class="text-center">ประเภท</th>
+                            <th class="text-center">ต้นทุน</th>
+                            <th class="text-center">ราคาขาย</th>
+                            <th class="text-center">วันผลิต</th>
+                            <th class="text-center">วันหมดอายุ</th>
+                            <th class="text-center">จำนวน</th>
+                        </tr>
+                    </thead>
+                                    @foreach($products as $index => $col)
+                                      <tbody>
+                                            <tr>
+                                              <td>{{$col->id}}</td>
+                                              <td>{{$col->pro_name}}</td>
+                                              <td>{{$col->pro_type}}</td>
+                                              <td>{{$col->pro_price}}</td>
+                                              <td>{{$col->pro_sale_price}}</td>
+                                              <td>{{$col->pro_maf_date}}</td>
+                                              <td>{{$col->pro_ex_date}}</td>
+                                              <td>{{$col->pro_amount}}
+                                                <!-- div class="text-center">
+                                                    <input min="0" max="3000" type="number" name="amount" value="{{$col->pro_amount}}">
+                                                </div> -->
+                                              </td>
+                                            </tr>
+                                      </tbody>
+                                    @endforeach                
+                    </table>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+</center>
 </body>
 </html>
