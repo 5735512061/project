@@ -1,6 +1,6 @@
 @extends('admin/template')
 @section('test')
-	@include('admin.navbar')
+	@include('navbar')
 	@include('admin.leftmenu')
 
 <!-- <div class="container">

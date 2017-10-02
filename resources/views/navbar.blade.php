@@ -7,7 +7,7 @@
 	<nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-            <a href="home1"><img alt="KasetWMS Logo" src="img/head.jpg"></a>
+            <a href="home1"><img alt="KasetWMS Logo" src="{{url('img/head.jpg')}}"></a>
         </div>
         <ul class="nav navbar-nav">
           <li>

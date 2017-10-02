@@ -1,7 +1,7 @@
 @extends('admin/template')
 @section('test')
 	<meta charset="UTF-8">
-	<link href="{{asset('css/bootstrap-tableadmin.css')}}" rel="stylesheet">
+	<!-- <link href="{{asset('css/bootstrap-tableadmin.css')}}" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
@@ -10,7 +10,7 @@
     <link href="{{asset('css/bootstrap-menu.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css"> 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>   -->
 
 	<!-- navbar -->
 	<nav class="navbar navbar-default">

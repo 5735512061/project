@@ -51,13 +51,13 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="/ch_pass">เปลี่ยนรหัสผ่าน</a>
+                                                    <a href="{{url('ch_pass')}}">เปลี่ยนรหัสผ่าน</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                             @if (Auth::user()->name=="หทัยชนก อินทนิน")
                                                 <td>
-                                                    <a href="/adduser">ผู้ใช้งานระบบ</a> <span class="label label-info"></span>
+                                                    <a href="{{url('adduser')}}">ผู้ใช้งานระบบ</a> <span class="label label-info"></span>
                                                 </td>
                                             </tr>
                                             @endif

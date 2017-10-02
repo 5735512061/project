@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>KASET WMS</title>
+	<title>รายละเอียดสินค้า</title>
 	<style>
         @font-face {
             font-family: 'THSarabunNew';
@@ -41,10 +41,8 @@
 	</style>
 </head>
 <body>
-<center>
-     <div class="container">
-                  <div class="row">
-                      <div class="col-md-9">
+
+                      <h2>รายละเอียดสินค้า</h2>
                         <!--  <div class="row col-md-6 col-md-offset-2 custyle"> -->
                         <div class="table-responsive">
                           <div class="panel panel-default panel-table"> 
@@ -84,9 +82,5 @@
                     </div>
                 </div>
 
-                </div>
-            </div>
-        </div>
-</center>
 </body>
 </html>

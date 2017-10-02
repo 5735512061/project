@@ -25,7 +25,7 @@ class ProductsController extends Controller
         // $products = Product::all();
         // return view('admin.product')->with('products',$products);
 
-            $NUM_PAGE = 15;
+            $NUM_PAGE = 10;
             $products = Product::paginate($NUM_PAGE);
             $page = $request->input('page');
             $page = ($page != null)?$page:1;
