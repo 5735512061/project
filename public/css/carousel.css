@@ -1,0 +1,28 @@
+.list-inline {
+  text-align: center;
+}
+.list-inline > li {
+  margin: 10px 5px;
+  padding: 0;
+}
+.list-inline > li:hover {
+  cursor: pointer;
+}
+.list-inline .selected img {
+  opacity: 1;
+  border-radius: 15px;
+}
+.list-inline img {
+  opacity: 0.5;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.list-inline img:hover {
+  opacity: 1;
+}
+
+.item > img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

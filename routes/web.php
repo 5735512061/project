@@ -41,8 +41,14 @@ Route::get('/home1', function () {
 Route::get('/bestseller','Products\\ProductsController@bestseller');
 Route::get('/out_of_stock','Products\\ProductsController@outofstock');
 Route::get('/exp','Products\\ProductsController@exp');
+Route::get('/balance','Products\\ProductsController@balance');
 
 Route::get('pdf','PDFController@pdf');
+
+Route::get('/search2','SearchController@search2');
+
+Route::get('/alogin','Products\\ProductsController@alogin');
+Route::get('/aregister','Products\\ProductsController@aregister');
 
 
 

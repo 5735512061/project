@@ -134,5 +134,17 @@ class ProductsController extends Controller
     public function bestseller(){
         return view('bestseller');
     }
+    public function balance(){
+        $product = DB::table('products')->get();
+        return view('balance')->with('product',$product);
+    }
+    public function alogin(){
+        return view('alogin');
+    }
+    public function aregister(){
+        return view('aregister');
+    }
+
+
 
 }

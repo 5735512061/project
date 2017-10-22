@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="panel-group" id="accordion">
-                            <div class="panel panel-info">
+                            <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Menu</a>
@@ -29,13 +29,18 @@
                                                 <td>
                                                     <a href="{{url('exp')}}">สินค้าใกล้หมดอายุ</a>
                                                 </td>
-                                            </tr>            
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="{{url('balance')}}">สินค้าคงเหลือ</a>
+                                                </td>
+                                            </tr>    
                                         </table>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="panel panel-info">
+                            <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Account</a>
@@ -66,7 +71,7 @@
                                 </div>
                             </div>
 
-                            <div class="panel panel-info">
+                            <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Reports</a>
