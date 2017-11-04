@@ -1,11 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+<div class="middlePage">
+    <div class="page-header">
+      <h3 class="logo">ลูกค้าที่สมัครสมาชิกไว้แล้ว</h3>
+    </div>
+    <div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Please Sign In</h3>
+  </div>
+  <div class="panel-body">
+  
+  <div class="row">
+    <div class="col-md-10" style="border-left:1px solid #ccc;height:240px">
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}

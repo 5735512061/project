@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Products;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Category;
 use Validator;
 use DB;
+use Storage;
+use putFile;
 
 class ProductsController extends Controller
 {
@@ -41,7 +45,10 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.in');
+
+        $categorys = Category::all();
+
+        return view('admin.in')->with('categorys',$categorys);
     }
 
     /**
@@ -53,7 +60,26 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        Product::create( $request->all());
+      Product::create( $request->all());
+
+      if($request->hasFile('img')){
+            echo 'Uploaded <br>';
+            $file = $request->file('img');
+             $fileName = md5(($file->getClientOriginalName(). time()) . time()) . "_o." . $file->getClientOriginalExtension();
+            $file->move('uploads/images/vagitable', $fileName);
+            $path = 'uploads/images/vagitable/'.$fileName;
+
+            echo '<a href="'.$path.'" target="_blank">ดาวน์โหลดรูปภาพ</a>';
+            $created_product = Product::findOrFail($request->get('id'));
+            $created_product->update(array('picture'=>$fileName));
+            
+        }else
+        {
+              echo 'Can not Upload';
+        }
+        
+
+
         return redirect('products');
     }
 
@@ -107,6 +133,20 @@ class ProductsController extends Controller
         return redirect('products');
     }
 
+    public function buystore(Request $request){
+        $data = $request->get('id');
+        $products = DB::table('products')
+                ->where('id', $data)->get();
+
+        return view('buystore')->with('products',$products);
+    }
+
+    public function buygetstore(){
+
+             
+        return view('product.vegetable');
+    }
+
     public function exp(Request $request){
            
         $curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
@@ -138,13 +178,59 @@ class ProductsController extends Controller
         $product = DB::table('products')->get();
         return view('balance')->with('product',$product);
     }
-    public function alogin(){
-        return view('alogin');
+    public function vegetable(Request $request){
+        // if($request->hasFile('img')){
+        //     echo 'Uploaded <br>';
+        //     $file = $request->file('img');
+        //     $fileName = md5(($file->getClientOriginalName(). time()) . time()) . "_o." . $file->getClientOriginalExtension();
+        //     $file->move('uploads/images/vagitable', $fileName);
+        //     $path = 'uploads/images/vagitable/'.$fileName;
+
+        //     echo '<a href="'.$path.'" target="_blank">ดาวน์โหลดรูปภาพ</a>';
+        //     $created_product = Product::findOrFail($request->get('id'));
+        //     $created_product->update(array('picture'=>$fileName));
+            
+        // }else
+        // {
+        //       echo 'Can not Upload';
+        // }
+        // return view('product.vegetable')->with('path',$path);
     }
-    public function aregister(){
-        return view('aregister');
+    public function fruit(){
+        return view('product.fruit');
+    }
+    public function plant(){
+        return view('product.plant');
+    }
+    public function dried_food(){
+        return view('product.dried_food');
+    }
+    public function pickle(){
+        return view('product.pickle');
+    }
+    public function grocery(){
+        return view('product.grocery');
+    }
+    public function product_process(){
+        return view('product.product_process');
+    }
+    public function product_general(){
+        return view('product.product_general');
     }
 
-
+    public function upload(Request $request)
+    { 
+         if($request->hasFile('img')){
+            echo 'Uploaded <br>';
+            $file = $request->file('img');
+             $fileName = md5(($file->getClientOriginalName(). time()) . time()) . "_o." . $file->getClientOriginalExtension();
+            $file->move('uploads/images/vagitable', $fileName);
+            $path = 'uploads/images/vagitable/'.$fileName;
+            echo '<a href="'.$path.'" target="_blank">ดาวน์โหลดรูปภาพ</a>';
+        }else
+        {
+              echo 'Can not Upload';
+        }
+    }
 
 }

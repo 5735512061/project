@@ -1,8 +1,6 @@
 @extends('admin/template')
 @section('test')
-	@include('navbar')
-	@include('admin.leftmenu')
-
+<br>
 <!-- <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -30,7 +28,7 @@
                <div class="panel-body">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-md-6">
                           <form  action="/products/{{$product->id}}" method="post" role="form">
                             <div class="form-group">
                               
@@ -40,13 +38,23 @@
                               ชื่อสินค้า :<input type="text" class="form-control" value="{{$product->pro_name}}" id="pro_name" name="pro_name" placeholder="ป้อนชื่อสินค้า">
                             </div>
                             <div class="form-group">
-                              ประเภท :<select class="form-control" value="{{$product->pro_type}}" id="pro_type" name="pro_type">
-                                        <option>เลือกประเภทสินค้า</option>
+                              ประเภท :<select class="form-control" id="protype" name="protype" ng-model="form.category">
+                                        <option>ผัก</option>
                                         <option>ผลไม้</option>
-                                        <option>ผักทั่วไป</option>
                                         <option>พืชไร่</option>
                                         <option>ของแห้ง</option>
                                         <option>ของดอง</option>
+                                        <option>ของชำ</option>
+                                        <option>สินค้าแปรรูป</option>
+                                        <option>สินค้าทั่วไป</option>
+                                    </select>
+                            </div>
+
+                            <div class="form-group">
+                              ประเภทย่อย :<select class="form-control" id="subtype" name="subtype">
+                            <option ng-repeat="c in categorys" ng-show="c.tpye === form.category">
+                                         [[c.name]]</option>
+                                     
                                     </select>
                             </div>
                             <div class="form-group">
@@ -56,7 +64,7 @@
                               ราคาขาย (บาท):<input type="number" class="form-control" value="{{$product->pro_sale_price}}" id="pro_sale_price" name="pro_sale_price" placeholder="ป้อนราคาขาย">
                             </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-md-6">
                             <div class="form-group">
                               วันผลิต:
                               <input type="date" class="form-control" value="{{$product->pro_maf_date}}" id="pro_maf_date" name="pro_maf_date">
@@ -67,6 +75,12 @@
                             <div class="form-group">
                               จำนวน :<input type="number" class="form-control" value="{{$product->pro_amount}}" id="pro_amount" name="pro_amount" placeholder="ป้อนจำนวนสินค้า">
                             </div>
+                            <div class="form-group">
+                              หน่วยสินค้า :<select class="form-control" id="unit" name="unit" value="{{$product->unit}}">
+                                        <option>ลัง</option>
+                                    </select>
+                            </div>
+                            รูปภาพ :<input type="file" class="form-control" id="img" name="img" placeholder="img"><br>
                             <div class="form-group">
                             <input type="hidden" name="_method" value="PUT">
                             {{csrf_field()}}  
@@ -87,4 +101,28 @@
 </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script>var app = angular.module('app', [], function ($interpolateProvider) {
+            $interpolateProvider.startSymbol('[[');
+            $interpolateProvider.endSymbol(']]');
+        });
+        app.config(['$sceProvider', function ($sceProvider) {
+            $sceProvider.enabled(true);
+        }]);
+        app.controller('form', function ($scope) {
+            $scope.form = {}
+            $scope.categorys = [
+              {tpye:"",name:''},
+              {tpye:"ผัก",name:'ผักทั่วไป'},{tpye:"ผัก",name:'ผักปรุงรส'},
+              {tpye:"ผัก",name:'ผักเมืองหนาว'},{tpye:"ผัก",name:'ผักพื้นบ้าน'},
+              {tpye:"ผลไม้",name:'ผลไม้ทั่วไป'},{tpye:"ผลไม้",name:'ผลไม้ฤดูกาล'},
+              {tpye:"ผลไม้",name:'ผลไม้ต่างประเทศ'},{tpye:"พืชไร่",name:'พืชไร่'},
+              {tpye:"ของแห้ง",name:'ของแห้ง'},{tpye:"ของดอง",name:'ของดอง'},
+              {tpye:"ของชำ",name:'ของชำสด'},{tpye:"ของชำ",name:'ของชำแห้ง'},
+              {tpye:"สินค้าแปรรูป",name:'สินค้าแปรรูป'},
+              {tpye:"สินค้าทั่วไป",name:'สินค้าอุปโภค'},{tpye:"สินค้าทั่วไป",name:'สินค้าบริโภค'},
+            ]
+        });
+        </script>
 @endsection

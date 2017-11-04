@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/testfilter.css">
 
 	<!-- <style>
 		body{
@@ -40,40 +41,43 @@
 		</div>
 	</nav> -->
 
-@include('admin.navbar')
-             
-@include('admin.leftmenu')
-               
-                <div class="container">
-                    <div class="row">
-                      <div class="col-md-9"> 
-                      <h4>สินค้าขายดี</h4><hr>
-                        <!--  <div class="row col-md-6 col-md-offset-2 custyle"> -->
-                        <div class="table-responsive">
-                          <div class="panel panel-default panel-table"> 
-                    <table class="table table-striped table-bordered table-list">
-                    <thead>
-                        <tr>
-                            <!-- <th class="text-center">ลำดับ</th> -->
-                            <th class="text-center">รหัสสินค้า</th>
-                            <th class="text-center">ชื่อสินค้า</th>
-                            <th class="text-center">ประเภท</th>
-                            <th class="text-center">ต้นทุน</th>
-                            <th class="text-center">ราคาขาย</th>
-                            <th class="text-center">วันผลิต</th>
-                            <th class="text-center">วันหมดอายุ</th>
-                            <th class="text-center">จำนวน</th>
-                        </tr>
+@include('navbar')
+<br><br>              
+               <div class="container">
+        <div class="row">
+        <div class="panel panel-primary filterable">
+        <div class="panel-heading">
+          <h3 class="panel-title">สินค้าขายดี</h3>
+            <div class="pull-right">
+              <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter">
+              </span> Filter</button>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                        <tr class="filters">
+                        <th><input type="text" class="form-control" placeholder="รหัสสินค้า" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="ชื่อสินค้า" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="ประเภท" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="ประเภทย่อย" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="ต้นทุน (บาท)" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="ราคาขาย (บาท)" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="วันผลิต" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="วันหมดอายุ" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="จำนวน (หน่วย)" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="รูปภาพ" disabled></th>
+                    </tr>
                     </thead>
-                    
+                                    <!--   -->
                     </table>
                     </div>
-                   
                 </div>
 
                 </div>
             </div>
-                </div>
-	<!-- Scripts -->
-	    <script src="{{ asset('js/app.js') }}"></script>
+        </div>
+    </div>
+</div>
+  <!-- Scripts -->
+      <script src="{{ asset('js/app.js') }}"></script>
 @endsection

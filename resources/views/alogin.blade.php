@@ -15,13 +15,6 @@
   <div class="panel-body">
   
   <div class="row">
-<!--   
-<div class="col-md-5" >
-<a href="#"><img src="http://techulus.com/buttons/fb.png" /></a><br/>
-<a href="#"><img src="http://techulus.com/buttons/tw.png" /></a><br/>
-<a href="#"><img src="http://techulus.com/buttons/gplus.png" /></a>
-</div>
- -->
     <div class="col-md-10" style="border-left:1px solid #ccc;height:200px">
 <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}

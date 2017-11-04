@@ -1,7 +1,7 @@
 @extends('admin/template')
 @section('test')
-	@include('admin.navbar')
-	@include('admin.leftmenu')
+	@include('navbar')
+<br>
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">

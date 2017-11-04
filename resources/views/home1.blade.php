@@ -8,7 +8,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="css/carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/test.css">
+    <script src="test.js" type="text/javascript"></script>
+    <script>
+      $(document).ready(function(){
+
+    $(".filter-button").click(function(){
+        var value = $(this).attr('data-filter');
+        
+        if(value == "all")
+        {
+            //$('.filter').removeClass('hidden');
+            $('.filter').show('1000');
+        }
+        else
+        {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+            
+        }
+    });
+    
+    if ($(".filter-button").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
+
+});
+    </script>
+
 <!-- 
     <style>
       body{
@@ -220,35 +250,47 @@
         <div class="row row1">
             <ul class="largenav pull-right">
                 <li class="upper-links"><a class="links" href="{{url('/home1')}}">หน้าแรก</a></li>
-                 @if (!Auth::guest())
-                <li class="upper-links"><a class="links" href="{{url('/products')}}">คลังสินค้า</a></li>
-                 @endif
                 <li class="upper-links dropdown"><a class="links">หมวดสินค้า</a>
-                    <ul class="dropdown-menu">
-                        <li class="profile-li"><a class="profile-links" href="http://yazilife.com/">ผัก</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://hacksociety.tech/">ผลไม้</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">พืชไร่</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">ของแห้ง</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">ของดอง</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">ของชำ</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">สินค้าแปรรูป</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">สินค้าทั่วไป</a></li>
+                <ul class="dropdown-menu">
+                        <li class="profile-li"><a class="profile-links" href="{{url('/vegetable')}}">ผัก</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/fruit')}}">ผลไม้</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/plant')}}">พืชไร่</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/dried_food')}}">ของแห้ง</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/product_process')}}">สินค้าแปรรูป</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/product_general')}}">สินค้าทั่วไป</a></li>
                     </ul>
                 </li>
-                <li class="upper-links"><a class="links" href="{{url('#')}}">บทความ</a></li>
-                <li class="upper-links"><a class="links" href="{{url('#')}}">กระดาน ถาม-ตอบ</a></li>
-                <li class="upper-links dropdown"><a class="links"><span class="glyphicon glyphicon-user col-sm-2"></span>&nbsp;{{ Auth::user()->name }}</a>
+                @if (!Auth::guest()&&Auth::user()->name=="หทัยชนก อินทนิน")
+                <li class="upper-links"><a class="links" href="{{url('/products')}}">คลังสินค้า</a></li>
+                @endif
+                 <li class="upper-links dropdown"><a class="links">รายการสินค้า</a>
+                <ul class="dropdown-menu">
+                        <li class="profile-li"><a class="profile-links" href="{{url('/bestseller')}}">สินค้าขายดี</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/out_of_stock')}}">สินค้าใกล้หมดคลัง</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/exp')}}">สินค้าใกล้หมดอายุ</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/balance')}}">สินค้าคงเหลือ</a></li>
+                    </ul>
+                </li>
+                <li class="upper-links dropdown"><a class="links">รายงานสินค้า</a>
+                <ul class="dropdown-menu">
+                        <li class="profile-li"><a class="profile-links" href="{{url('/pdf')}}">รายละเอียดสินค้า</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/fruit')}}">สรุปยอดสินค้า</a></li> 
+                    </ul>
+                </li>
           @if (Auth::guest())
-                <li class="upper-links"><a class="links" href="{{url('/alogin')}}">ลงชื่อเข้าใช้</a></li>
-                <li class="upper-links"><a class="links" href="{{url('/aregister')}}">สมัครสมาชิก</a></li>
+                <li class="upper-links"><a class="links" href="{{url('/login')}}">ลงชื่อเข้าใช้</a></li>
+                <li class="upper-links"><a class="links" href="{{url('/register')}}">สมัครสมาชิก</a></li>
           @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user col-sm-2"></span>&nbsp;
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
+                            <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="glyphicon glyphicon-user">
+                                </span>&nbsp;
+                            {{ Auth::user()->name }}&nbsp;<span class="caret"></span>
+                            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="{{url('data')}}">บัญชีผู้ใช้</a></li>
+              <li role="separator" class="divider"></li>
+              <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -257,12 +299,14 @@
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-        </li>
+                                        </form></li>
+            </ul>
+            </div>
+
+
+
+                
+            @endif
                                 <!-- <li class="upper-links">
                     <a class="links" href="http://clashhacks.in/">
                         <svg class="" width="16px" height="12px" style="overflow: visible;">
@@ -275,11 +319,11 @@
         <div class="row row2">
             <div class="col-sm-2">
                 <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Brand</span></h2>
-                <h1 style="margin:0px;"><span class="largenav"></span></h1>
+                <h1 style="margin:0px;"><span class="largenav"></h1>
             </div>
             <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
                 <div class="row">
-                    <input class="flipkart-navbar-input col-xs-11" type="" placeholder="ค้นหาสินค้า หรือหมวดหมู่" name="">
+                    <input class="flipkart-navbar-input col-xs-11" type="" placeholder="ค้นหาสินค้าหรือหมวดหมู่สินค้า" name="">
                     <button class="flipkart-navbar-button col-xs-1">
                         <svg width="15px" height="15px">
                             <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
@@ -309,99 +353,96 @@
     <a href="http://clashhacks.in/">Link</a>
 </div>
 <br>
-    <div class="container">
-  
-  <div class="row" id="slider">
-    <div class="col-md-12">
-      <div id="myCarousel" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="active item" data-slide-number="0">
-            <img src="http://placehold.it/1200x480&text=1">
-          </div>
-          <div class="item" data-slide-number="1">
-            <img src="http://placehold.it/1200x480&text=2">
-          </div>
-          <div class="item" data-slide-number="2">
-            <img src="http://placehold.it/1200x480&text=3">
-          </div>
-          <div class="item" data-slide-number="3">
-            <img src="http://placehold.it/1200x480&text=4">
-          </div>
-          <div class="item" data-slide-number="4">
-            <img src="http://placehold.it/1200x480&text=5">
-          </div>
-          <div class="item" data-slide-number="5">
-            <img src="http://placehold.it/1200x480&text=6">
-          </div>
-          <div class="item" data-slide-number="6">
-            <img src="http://placehold.it/1200x480&text=7">
-          </div>
-          <div class="item" data-slide-number="7">
-            <img src="http://placehold.it/1200x480&text=8">
-          </div>
+   <div class="container">
+        <div class="row">
+        <div align="center">
+            <button class="btn btn-default filter-button" data-filter="all">สินค้าทั้งหมด</button>
+            <button class="btn btn-default filter-button" data-filter="hdpe">ผัก</button>
+            <button class="btn btn-default filter-button" data-filter="sprinkle">ผลไม้</button>
+            <button class="btn btn-default filter-button" data-filter="spray">พืชไร่</button>
+            <button class="btn btn-default filter-button" data-filter="irrigation">ของแห้ง</button>
+            <button class="btn btn-default filter-button" data-filter="spray1">สินค้าแปรรูป</button>
+            <button class="btn btn-default filter-button" data-filter="irrigation1">สินค้าทั่วไป</button>
         </div>
-        
-        <!-- Controls-->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-        
-      </div>
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-md-12" id="slider-thumbs">
-      <ul class="list-inline">
-        <li>
-          <a id="carousel-thumb-0" class="selected">
-            <img src="http://placehold.it/80x60&text=1">
-          </a>
-        </li>
-        <li>
-          <a id="carousel-thumb-1">
-            <img src="http://placehold.it/80x60&text=2">
-          </a>
-        </li>
-        <li>
-          <a id="carousel-thumb-2">
-            <img src="http://placehold.it/80x60&text=3">
-          </a>
-        </li>
-        <li>
-          <a id="carousel-thumb-3">
-            <img src="http://placehold.it/80x60&text=4">
-          </a>
-        </li>
-        <li>
-          <a id="carousel-thumb-4">
-            <img src="http://placehold.it/80x60&text=5">
-          </a>
-        </li>
-        <li>
-          <a id="carousel-thumb-5">
-            <img src="http://placehold.it/80x60&text=6">
-          </a>
-        </li>
-        <li>
-          <a id="carousel-thumb-6">
-            <img src="http://placehold.it/80x60&text=7">
-          </a>
-        </li>
-        <li>
-          <a id="carousel-thumb-7">
-            <img src="http://placehold.it/80x60&text=8">
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+        <br/>
 
+
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="{{url('img/cucumber.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="{{url('img/asparagus.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="{{url('img/mushroom.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="{{url('img/onion.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="{{url('img/ginger.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="{{url('img/cabbage.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="{{url('img/ves.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <img src="{{url('img/western.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <img src="{{url('img/roseapple.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <img src="{{url('img/persimmon.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <img src="{{url('img/melon.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <img src="{{url('img/rambutan.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <img src="{{url('img/avocado.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <img src="{{url('img/watermelon.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <img src="{{url('img/corn.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <img src="{{url('img/soya.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <img src="{{url('img/peanut.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <img src="{{url('img/pumpkin.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <img src="{{url('img/yam.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <img src="{{url('img/yamm.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                <img src="{{url('img/garlic.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                <img src="{{url('img/driedchilli.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                <img src="{{url('img/shallots.jpg')}}" class="img-responsive">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                <img src="{{url('img/onionl.jpg')}}" class="img-responsive">
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

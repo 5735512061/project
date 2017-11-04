@@ -2,9 +2,7 @@
 @section('test')
 	<meta charset="UTF-8">
 
-@include('admin.navbar')
-             
-@include('admin.leftmenu')
+@include('navbar')<br><br>
 
 @include('admin.import_product')
 
