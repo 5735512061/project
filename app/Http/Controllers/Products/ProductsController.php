@@ -47,7 +47,6 @@ class ProductsController extends Controller
     {
 
         $categorys = Category::all();
-
         return view('admin.in')->with('categorys',$categorys);
     }
 
@@ -77,9 +76,6 @@ class ProductsController extends Controller
         {
               echo 'Can not Upload';
         }
-        
-
-
         return redirect('products');
     }
 
@@ -141,9 +137,7 @@ class ProductsController extends Controller
         return view('buystore')->with('products',$products);
     }
 
-    public function buygetstore(){
-
-             
+    public function buygetstore(){    
         return view('product.vegetable');
     }
 
@@ -178,44 +172,25 @@ class ProductsController extends Controller
         $product = DB::table('products')->get();
         return view('balance')->with('product',$product);
     }
-    public function vegetable(Request $request){
-        // if($request->hasFile('img')){
-        //     echo 'Uploaded <br>';
-        //     $file = $request->file('img');
-        //     $fileName = md5(($file->getClientOriginalName(). time()) . time()) . "_o." . $file->getClientOriginalExtension();
-        //     $file->move('uploads/images/vagitable', $fileName);
-        //     $path = 'uploads/images/vagitable/'.$fileName;
-
-        //     echo '<a href="'.$path.'" target="_blank">ดาวน์โหลดรูปภาพ</a>';
-        //     $created_product = Product::findOrFail($request->get('id'));
-        //     $created_product->update(array('picture'=>$fileName));
-            
-        // }else
-        // {
-        //       echo 'Can not Upload';
-        // }
-        // return view('product.vegetable')->with('path',$path);
+    public function vegetable(){
+        $product = DB::table('products')->where('pro_type','=','ผัก')->get();
+        return view('product.vegetable')->with('products',$product);
     }
     public function fruit(){
-        return view('product.fruit');
+        $product = DB::table('products')->where('pro_type','=','ผลไม้')->get();
+        return view('product.fruit')->with('products',$product);
     }
     public function plant(){
-        return view('product.plant');
+        $product = DB::table('products')->where('pro_type','=','พืชไร่')->get();
+        return view('product.plant')->with('products',$product);
     }
     public function dried_food(){
-        return view('product.dried_food');
-    }
-    public function pickle(){
-        return view('product.pickle');
-    }
-    public function grocery(){
-        return view('product.grocery');
-    }
-    public function product_process(){
-        return view('product.product_process');
+        $product = DB::table('products')->where('pro_type','=','ของแห้ง')->get();
+        return view('product.dried_food')->with('products',$product);
     }
     public function product_general(){
-        return view('product.product_general');
+        $product = DB::table('products')->where('pro_type','=','สินค้าทั่วไป')->get();
+        return view('product.product_general')->with('products',$product);
     }
 
     public function upload(Request $request)

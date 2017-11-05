@@ -32,13 +32,13 @@ function closeNav() {
                         <li class="profile-li"><a class="profile-links" href="{{url('/fruit')}}">ผลไม้</a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/plant')}}">พืชไร่</a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/dried_food')}}">ของแห้ง</a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/product_process')}}">สินค้าแปรรูป</a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/product_general')}}">สินค้าทั่วไป</a></li>
                     </ul>
                 </li>
                 @if (Auth::user()->name=="หทัยชนก อินทนิน")
                 <li class="upper-links"><a class="links" href="{{url('/products')}}">คลังสินค้า</a></li>
                 @endif
+                @if (Auth::user()->name=="หทัยชนก อินทนิน")
                 <li class="upper-links dropdown"><a class="links">รายการสินค้า</a>
                 <ul class="dropdown-menu">
                         <li class="profile-li"><a class="profile-links" href="{{url('/bestseller')}}">สินค้าขายดี</a></li>
@@ -47,13 +47,7 @@ function closeNav() {
                         <li class="profile-li"><a class="profile-links" href="{{url('/balance')}}">สินค้าคงเหลือ</a></li>
                     </ul>
                 </li>
-                <li class="upper-links dropdown"><a class="links">รายงานสินค้า</a>
-                <ul class="dropdown-menu">
-                        <li class="profile-li"><a class="profile-links" href="{{url('/pdf')}}">รายละเอียดสินค้า</a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/fruit')}}">สรุปยอดสินค้า</a></li> 
-                    </ul>
-                </li>
-                
+                @endif
                 <!-- <li class="upper-links">
                     <a class="links" href="http://clashhacks.in/">
                         <svg class="" width="16px" height="12px" style="overflow: visible;">

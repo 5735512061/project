@@ -43,8 +43,9 @@
 
 @include('navbar')
 <br><br>              
-               <div class="container">
+<div class="container">
         <div class="row">
+        <a class='btn btn-info btn-md' href="{{url('/pdf')}}"> <span class="glyphicon glyphicon-export"></span> Export PDF</a>
         <div class="panel panel-primary filterable">
         <div class="panel-heading">
           <h3 class="panel-title">สินค้าขายดี</h3>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>รายละเอียดสินค้า</title>
+	<title>สินค้าคงเหลือ</title>
 	<style>
         @font-face {
             font-family: 'THSarabunNew';
@@ -42,7 +42,7 @@
 </head>
 <body>
 
-                      <h2>รายละเอียดสินค้า</h2>
+                      <h2>สินค้าคงเหลือ</h2>
                         <!--  <div class="row col-md-6 col-md-offset-2 custyle"> -->
                         <div class="table-responsive">
                           <div class="panel panel-default panel-table"> 

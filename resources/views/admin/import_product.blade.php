@@ -1,10 +1,13 @@
 <link rel="stylesheet" type="text/css" href="css/testfilter.css">
                <!--  <div class="panel-body"> -->
+
 <div class="container">
         <div class="row">
+        <a class='btn btn-success btn-md' href=""> <span class="glyphicon glyphicon-import"></span> Import Excel</a>
+        <a class='btn btn-info btn-md' href="{{url('/pdf')}}"> <span class="glyphicon glyphicon-export"></span> Export PDF</a>
         <div class="panel panel-primary filterable">
         <div class="panel-heading">
-          <h3 class="panel-title">Product</h3>
+          <h3 class="panel-title">คลังสินค้า</h3>
             <div class="pull-right">
               <a class='btn btn-default btn-xs' href="products/create"><span class="glyphicon glyphicon-plus"></span> เพิ่มสินค้า</a>
               <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter">

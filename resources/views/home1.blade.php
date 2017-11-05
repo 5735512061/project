@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="css/test.css">
+    <link rel="stylesheet" type="text/css" href="css/filter.css">
     <script src="test.js" type="text/javascript"></script>
     <script>
       $(document).ready(function(){
@@ -48,201 +48,6 @@ $(this).addClass("active");
 </head>
 <body>
 
- <!--  <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="home1"><img alt="KasetWMS Logo" src="img/head.jpg"></a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="{{url('/home1')}}">หน้าแรก</a>
-          </li>
-          @if (!Auth::guest())
-           <li>
-            <a href="{{url('/product')}}">คลังสินค้า</a>
-          </li>
-          @endif
-           <li>
-            <a href="{{url('#')}}">บทความ</a>
-          </li>
-           <li>
-            <a href="{{url('#')}}">กระดานถาม-ตอบ</a>
-          </li>
-        </ul>
-        <div class="col-sm-6 col-md-3">
-            <ul class="nav navbar-nav">
-              <li>
-              <form class="navbar-form" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="q">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                    </div>
-                </div>
-                </form>
-              </li>
-            </ul>
-          </div>
-        <ul class="nav navbar-nav navbar-right">
-          @if (Auth::guest())
-          <li>
-              <a id="login-button"  class="login-button"  role="button" data-toggle="modal" data-target="#login-modal" data-backdrop="static" data-controls-modal="login-modal" >  เข้าสู่ระบบ</a>
-          </li>
-          <li >
-              <a id="register-button"  class="login-button"  role="button" data-toggle="modal" data-target="#register-modal" data-backdrop="static" data-controls-modal="login-modal" >  ลงทะเบียน</a>
-          </li>
-          @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user col-sm-2"></span>&nbsp;
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-        </ul>
-      </div>
-  </nav>
-
-  <div class="modal fade loginpopup index" id="login-modal"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-        <div class="modal-dialog login-form animated">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">x</button>
-                </div>
-                <div class="modal-body">
-                    <form  name="loginform" role="form" action="{{ route('login') }}" method="POST">
-                    {{ csrf_field() }}
-                      <div id="my-tab-content" class="tab-content">
-                          <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" >
-                            <label for="email">E-Mail Address</label>
-                              <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" value="{{ old('email') }}" required autofocus>
-                                  @if ($errors->has('email'))
-                                      <span class="help-block">
-                                          <strong>{{ $errors->first('email') }}</strong>
-                                      </span>
-                                  @endif
-                                      <span class="has-error" ng-show="loginform.email.$touched && loginform.email.$invalid" class="font-ten">
-                                      </span>
-                          </div>
-
-                          <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password">Password</label>
-                              <input type="password" id="password" name="password" class="form-control" placeholder="Password" required >
-                                  @if ($errors->has('password'))
-                                      <span class="help-block">
-                                          <strong>{{ $errors->first('password') }}</strong>
-                                      </span>
-                                  @endif
-                          </div>
-                      </div> 
-                            
-                    <center><div class="form-group login-index" style="margin-bottom:0px;padding-top:0px !important">
-                      <label>
-                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>        Rememer Me 
-                      </label></div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">
-                                    เข้าสู่ระบบ
-                            </button>
-
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    ลืมรหัสผ่าน ?
-                            </a>
-                        </div>
-                    </center>
-                    </form>
-                </div>
-              </div>
-            </div>
-  </div>                  
-    
-
-<div class="modal fade loginpopup index" id="register-modal"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-        <div class="modal-dialog login-form animated">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">x</button>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-              </div>
-            </div>
-  </div>            
-<br><br><br><br> -->
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <div id="flipkart-navbar">
@@ -256,13 +61,13 @@ $(this).addClass("active");
                         <li class="profile-li"><a class="profile-links" href="{{url('/fruit')}}">ผลไม้</a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/plant')}}">พืชไร่</a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/dried_food')}}">ของแห้ง</a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/product_process')}}">สินค้าแปรรูป</a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/product_general')}}">สินค้าทั่วไป</a></li>
                     </ul>
                 </li>
                 @if (!Auth::guest()&&Auth::user()->name=="หทัยชนก อินทนิน")
                 <li class="upper-links"><a class="links" href="{{url('/products')}}">คลังสินค้า</a></li>
                 @endif
+                @if (!Auth::guest()&&Auth::user()->name=="หทัยชนก อินทนิน")
                  <li class="upper-links dropdown"><a class="links">รายการสินค้า</a>
                 <ul class="dropdown-menu">
                         <li class="profile-li"><a class="profile-links" href="{{url('/bestseller')}}">สินค้าขายดี</a></li>
@@ -271,12 +76,7 @@ $(this).addClass("active");
                         <li class="profile-li"><a class="profile-links" href="{{url('/balance')}}">สินค้าคงเหลือ</a></li>
                     </ul>
                 </li>
-                <li class="upper-links dropdown"><a class="links">รายงานสินค้า</a>
-                <ul class="dropdown-menu">
-                        <li class="profile-li"><a class="profile-links" href="{{url('/pdf')}}">รายละเอียดสินค้า</a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/fruit')}}">สรุปยอดสินค้า</a></li> 
-                    </ul>
-                </li>
+                @endif
           @if (Auth::guest())
                 <li class="upper-links"><a class="links" href="{{url('/login')}}">ลงชื่อเข้าใช้</a></li>
                 <li class="upper-links"><a class="links" href="{{url('/register')}}">สมัครสมาชิก</a></li>
@@ -289,6 +89,7 @@ $(this).addClass("active");
                             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li><a href="{{url('data')}}">บัญชีผู้ใช้</a></li>
+              <li><a href="{{url('ch_pass')}}">เปลี่ยนรหัสผ่าน</a></li>
               <li role="separator" class="divider"></li>
               <li>
                                         <a href="{{ route('logout') }}"
@@ -361,7 +162,6 @@ $(this).addClass("active");
             <button class="btn btn-default filter-button" data-filter="sprinkle">ผลไม้</button>
             <button class="btn btn-default filter-button" data-filter="spray">พืชไร่</button>
             <button class="btn btn-default filter-button" data-filter="irrigation">ของแห้ง</button>
-            <button class="btn btn-default filter-button" data-filter="spray1">สินค้าแปรรูป</button>
             <button class="btn btn-default filter-button" data-filter="irrigation1">สินค้าทั่วไป</button>
         </div>
         <br/>

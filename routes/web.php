@@ -50,7 +50,11 @@ Route::get('/out_of_stock','Products\\ProductsController@outofstock');
 Route::get('/exp','Products\\ProductsController@exp');
 Route::get('/balance','Products\\ProductsController@balance');
 
-Route::get('pdf','PDFController@pdf');
+//pdf
+Route::get('/pdf','PDFController@pdf');
+Route::get('/outstockpdf','PDFController@outstockpdf');
+Route::get('/exppdf','PDFController@exppdf');
+Route::get('/balancepdf','PDFController@balancepdf');
 
 Route::get('/search2','SearchController@search2');
 
@@ -58,9 +62,6 @@ Route::get('/vegetable','Products\\ProductsController@vegetable');
 Route::get('/fruit','Products\\ProductsController@fruit');
 Route::get('/plant','Products\\ProductsController@plant');
 Route::get('/dried_food','Products\\ProductsController@dried_food');
-Route::get('/pickle','Products\\ProductsController@pickle');
-Route::get('/grocery','Products\\ProductsController@grocery');
-Route::get('/product_process','Products\\ProductsController@product_process');
 Route::get('/product_general','Products\\ProductsController@product_general');
 
 Route::post('/buystore','Products\\ProductsController@buystore');

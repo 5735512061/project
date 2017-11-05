@@ -1,41 +1,12 @@
 @extends('admin/template')
 <link rel="stylesheet" type="text/css" href="css/testfilter.css">
 @section('test')
-            <!--   <div class="panel-heading">
-                <div class="row">
-                  <div class="col col-xs-6">
-                    <h3 class="panel-title">สินค้า</h3>
-                  </div>
-                </div>
-              </div> -->
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                  <nav class="navbar navbar-default">
-                      <div class="container-fluid">
-                        <div class="navbar-header">
-                          
-                        </div>
-                        <ul class="nav navbar-nav">
-                            <li><a href="home1">หน้าแรก</a></li>
-                            <li><a href="product">คลังสินค้า</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">บทความ</a></li>
-                            <li><a href="#">กระดานถาม-ตอบ</a></li>
-                        </ul>
-                      </div>
-                  </nav>
-
-              </div>
- -->
 @include('navbar')
              <br><br>
                <!--  <div class="panel-body"> -->
-                   <div class="container">
+<div class="container">
         <div class="row">
+        <a class='btn btn-info btn-md' href="{{url('/balancepdf')}}"> <span class="glyphicon glyphicon-export"></span> Export PDF</a>
         <div class="panel panel-primary filterable">
         <div class="panel-heading">
           <h3 class="panel-title">สินค้าคงเหลือ</h3>

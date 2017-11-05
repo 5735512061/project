@@ -1,30 +1,6 @@
 @extends('admin/template')
 @section('test')
 <br>
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                  <nav class="navbar navbar-default">
-                      <div class="container-fluid">
-                        <div class="navbar-header">
-                          
-                        </div>
-                        <ul class="nav navbar-nav">
-                            <li><a href="/home1">หน้าแรก</a></li>
-                            @if (!Auth::guest())
-                            <li><a href="/product">คลังสินค้า</a></li>
-                            @endif
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">บทความ</a></li>
-                            <li><a href="#">กระดานถาม-ตอบ</a></li>
-                        </ul>
-                      </div>
-                  </nav>
-
-              </div> -->
                <div class="panel-body">
         <div class="container">
             <div class="row">
@@ -43,9 +19,6 @@
                                         <option>ผลไม้</option>
                                         <option>พืชไร่</option>
                                         <option>ของแห้ง</option>
-                                        <option>ของดอง</option>
-                                        <option>ของชำ</option>
-                                        <option>สินค้าแปรรูป</option>
                                         <option>สินค้าทั่วไป</option>
                                     </select>
                             </div>
@@ -118,9 +91,7 @@
               {tpye:"ผัก",name:'ผักเมืองหนาว'},{tpye:"ผัก",name:'ผักพื้นบ้าน'},
               {tpye:"ผลไม้",name:'ผลไม้ทั่วไป'},{tpye:"ผลไม้",name:'ผลไม้ฤดูกาล'},
               {tpye:"ผลไม้",name:'ผลไม้ต่างประเทศ'},{tpye:"พืชไร่",name:'พืชไร่'},
-              {tpye:"ของแห้ง",name:'ของแห้ง'},{tpye:"ของดอง",name:'ของดอง'},
-              {tpye:"ของชำ",name:'ของชำสด'},{tpye:"ของชำ",name:'ของชำแห้ง'},
-              {tpye:"สินค้าแปรรูป",name:'สินค้าแปรรูป'},
+              {tpye:"ของแห้ง",name:'ของแห้ง'},
               {tpye:"สินค้าทั่วไป",name:'สินค้าอุปโภค'},{tpye:"สินค้าทั่วไป",name:'สินค้าบริโภค'},
             ]
         });
