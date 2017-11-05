@@ -38,13 +38,6 @@ $(this).addClass("active");
 
 });
     </script>
-
-<!-- 
-    <style>
-      body{
-        background-color: #85e085;
-      }
-    </style> -->
 </head>
 <body>
 
@@ -107,14 +100,7 @@ $(this).addClass("active");
 
 
                 
-            @endif
-                                <!-- <li class="upper-links">
-                    <a class="links" href="http://clashhacks.in/">
-                        <svg class="" width="16px" height="12px" style="overflow: visible;">
-                            <path d="M8.037 17.546c1.487 0 2.417-.93 2.417-2.417H5.62c0 1.486.93 2.415 2.417 2.415m5.315-6.463v-2.97h-.005c-.044-3.266-1.67-5.46-4.337-5.98v-.81C9.01.622 8.436.05 7.735.05 7.033.05 6.46.624 6.46 1.325v.808c-2.667.52-4.294 2.716-4.338 5.98h-.005v2.972l-1.843 1.42v1.376h14.92v-1.375l-1.842-1.42z" fill="#fff"></path>
-                        </svg>
-                    </a>
-                </li> -->
+            @endif 
             </ul>
         </div>
         <div class="row row2">
@@ -145,13 +131,13 @@ $(this).addClass("active");
 </div>
 <div id="mySidenav" class="sidenav">
     <div class="container" style="background-color: #2874f0; padding-top: 10px;">
-        <span class="sidenav-heading">Home</span>
+        <span class="sidenav-heading">Menu</span>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     </div>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
+    <a class="links" href="{{url('/home1')}}">หน้าแรก</a>
+    @if (!Auth::guest()&&Auth::user()->name=="หทัยชนก อินทนิน")
+    <a class="links" href="{{url('/products')}}">คลังสินค้า</a>
+    @endif
 </div>
 <br>
    <div class="container">
@@ -244,5 +230,9 @@ $(this).addClass("active");
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/navbar.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -21,6 +21,7 @@
 
 <div class="container">
         <div class="row">
+      <a class='btn btn-info btn-md' href="{{url('/ExportProducts')}}"> <span class="glyphicon glyphicon-export"></span> Export Excel</a>
       <a class='btn btn-info btn-md' href="{{url('/outstockpdf')}}"> <span class="glyphicon glyphicon-export"></span> Export PDF</a>
         <div class="panel panel-primary filterable">
         <div class="panel-heading">

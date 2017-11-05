@@ -1,11 +1,10 @@
 @extends('admin/template')
 <link rel="stylesheet" type="text/css" href="css/testfilter.css">
-@section('test')
 @include('navbar')
              <br><br>
-               <!--  <div class="panel-body"> -->
 <div class="container">
         <div class="row">
+        <a class='btn btn-info btn-md' href="{{url('/ExportProducts')}}"> <span class="glyphicon glyphicon-export"></span> Export Excel</a>
         <a class='btn btn-info btn-md' href="{{url('/balancepdf')}}"> <span class="glyphicon glyphicon-export"></span> Export PDF</a>
         <div class="panel panel-primary filterable">
         <div class="panel-heading">
@@ -54,12 +53,7 @@
                     </table>
                     </div>
                 </div>
+              </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
   <!-- Scripts -->
       <script src="{{ asset('js/app.js') }}"></script>
-@endsection

@@ -1,10 +1,13 @@
 <link rel="stylesheet" type="text/css" href="css/testfilter.css">
-               <!--  <div class="panel-body"> -->
-
 <div class="container">
         <div class="row">
-        <a class='btn btn-success btn-md' href=""> <span class="glyphicon glyphicon-import"></span> Import Excel</a>
+        <a class='btn btn-success btn-md' href="{{url('/ImportProducts')}}"> <span class="glyphicon glyphicon-import"></span> Import Excel</a>
+        <a class='btn btn-info btn-md' href="{{url('/ExportProducts')}}"> <span class="glyphicon glyphicon-export"></span> Export Excel</a>
         <a class='btn btn-info btn-md' href="{{url('/pdf')}}"> <span class="glyphicon glyphicon-export"></span> Export PDF</a>
+        <div class="pull-right">
+          <a class='btn btn-danger btn-md' href="{{url('/deleteAll')}}"><span class="glyphicon glyphicon-trash"></span> Delete All</a>
+          <a class='btn btn-danger btn-md' href="{{url('/deleteAll')}}"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+        </div>
         <div class="panel panel-primary filterable">
         <div class="panel-heading">
           <h3 class="panel-title">คลังสินค้า</h3>
@@ -12,7 +15,7 @@
               <a class='btn btn-default btn-xs' href="products/create"><span class="glyphicon glyphicon-plus"></span> เพิ่มสินค้า</a>
               <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter">
               </span> Filter</button>
-                </div>
+            </div>
             </div>
             <table class="table">
                 <thead>
@@ -70,3 +73,7 @@
         </div>
     </div>
 </div>
+    <script src="{{ asset('js/testfilter.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>

@@ -15,36 +15,11 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/testfilter.css">
-
-	<!-- <style>
-		body{
-			background-color: #85e085;
-		}
-	</style> -->
-	<!-- navbar -->
-	<!-- <nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				 <a class="navbar-brand">Kaset-Warehouse</a>
-			</div>
-
-			<ul class="nav navbar-nav">
-                <li class="active"><a href="product">คลังสินค้า</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a href="logout.blade.php">
-						<span class="glyphicon glyphicon-log-in"></span>  LOGOUT
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav> -->
-
 @include('navbar')
 <br><br>              
 <div class="container">
         <div class="row">
+        <a class='btn btn-info btn-md' href="{{url('/ExportProducts')}}"> <span class="glyphicon glyphicon-export"></span> Export Excel</a>
         <a class='btn btn-info btn-md' href="{{url('/pdf')}}"> <span class="glyphicon glyphicon-export"></span> Export PDF</a>
         <div class="panel panel-primary filterable">
         <div class="panel-heading">

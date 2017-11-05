@@ -29,6 +29,10 @@ Route::get('/home1', function () {
 Route::get('/testfilter', function () {
     return view('testfilter');
 });
+Route::get('/test', function () {
+    return view('testnav');
+});
+
 
 
 Route::group(['middleware' => ['auth']], function () {
@@ -55,6 +59,13 @@ Route::get('/pdf','PDFController@pdf');
 Route::get('/outstockpdf','PDFController@outstockpdf');
 Route::get('/exppdf','PDFController@exppdf');
 Route::get('/balancepdf','PDFController@balancepdf');
+
+//excel
+Route::get('/ExportProducts','ExcelController@ExportProducts');
+Route::get('/ImportProducts','ExcelController@ImportProducts');
+Route::post('/postImport','ExcelController@postImport');
+Route::get('/deleteAll','ExcelController@deleteAll');
+
 
 Route::get('/search2','SearchController@search2');
 

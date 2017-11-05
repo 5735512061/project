@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="css/navbar.css">
-  <script type="text/javascript" src="js/navbar.js"></script>
-  <script>
-      function openNav() {
-    document.getElementById("mySidenav").style.width = "70%";
-    // document.getElementById("flipkart-navbar").style.width = "50%";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.body.style.backgroundColor = "rgba(0,0,0,0)";
-}
-  </script>
+	    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <title>Laravel</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome-min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-min.css">
+        <link rel="stylesheet" type="text/css" href="css/navbar.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  
 </head>
 <body>
 
@@ -83,10 +82,7 @@ function closeNav() {
                                         </form></li>
             </ul>
             </div>
-
-
-
-                
+  
             @endif
         
           </div>
@@ -116,7 +112,19 @@ function closeNav() {
         </div>
     </div>
 </div>
-       
+<div id="mySidenav" class="sidenav">
+    <div class="container" style="background-color: #2874f0; padding-top: 10px;">
+        <span class="sidenav-heading">Home</span>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    </div>
+    <a href="http://clashhacks.in/">Link</a>
+    <a href="http://clashhacks.in/">Link</a>
+    <a href="http://clashhacks.in/">Link</a>
+    <a href="http://clashhacks.in/">Link</a>
+</div>
+     <script src="{{ asset('js/navbar.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
       </div>
 </div>
 
