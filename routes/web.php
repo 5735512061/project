@@ -62,6 +62,10 @@ Route::get('/balancepdf','PDFController@balancepdf');
 
 //excel
 Route::get('/ExportProducts','ExcelController@ExportProducts');
+Route::get('/ExportOutstock','ExcelController@ExportOutstock');
+Route::get('/ExportExp','ExcelController@ExportExp');
+Route::get('/ExportBalance','ExcelController@ExportBalance');
+
 Route::get('/ImportProducts','ExcelController@ImportProducts');
 Route::post('/postImport','ExcelController@postImport');
 Route::get('/deleteAll','ExcelController@deleteAll');
@@ -82,5 +86,9 @@ Route::get('/buystore','Products\\ProductsController@buygetstore');
 Route::post('/upload','Products\\ProductsController@upload');
 
 Route::get('/logout', 'Auth\LoginController@logout');
+
+//change-password
+Route::get('change-password', 'Auth\UpdatePasswordController@index')->name('password.form');
+Route::post('change-password', 'Auth\UpdatePasswordController@update')->name('password.update');
 
 });

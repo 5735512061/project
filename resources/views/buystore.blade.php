@@ -1,39 +1,22 @@
 @extends('admin/template')
 @include('navbar')
+<link rel="stylesheet" type="text/css" href="css/picture.css">
+<br><br>
+<div class="container">
+  <div class="row" align="center">
+  <form  action="/products/{{$product->id}}" method="post" role="form">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                  <div class="boxes">
+                    <div class="img-upper">
+                      <img src="{{url('uploads/images/vagitable')}}/test2.jpg" class="img-responsive" width="100%"><br>
+                    </div>
+                      <div class="description">
+                          <center><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-shopping-cart"></span> หยิบใส่ตะกร้า</button></center>
+                      </div>
+                  </div>
+                </div>
+   </form>
 
-<div class="container-fluid">
-    <section class="container">
-		<div class="container-page">				
-			<div class="col-md-4">
-				<h3 class="dark-grey">กุ้ยช่ายขาว</h3>
-				<img src="{{url('uploads/images/vagitable')}}/test2.jpg" class="img-responsive" width="50%" height="50%"><br>
-				<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-shopping-cart"></span> หยิบใส่ตะกร้า</button>
-			</div>
-			<div class="col-md-4">
+    </div>
+</div>    
 
-				<h3 class="dark-grey">รายละเอียดสินค้า</h3>
-		@foreach ($products as $object)			
-				<div class="form-group col-lg-12">
-					<label>รหัสสินค้า</label>
-					{{ $object->id }}
-				</div>
-				
-				<div class="form-group col-lg-12">
-					<label>ชื่อสินค้า</label>
-					{{ $object->pro_name }}
-				</div>
-				
-				<div class="form-group col-lg-12">
-					<label>ประเภทสินค้า</label>
-					{{ $object->pro_type }}
-				</div>			
-				<div class="form-group col-lg-12">
-					<label>ราคาขาย</label>
-					{{ $object->pro_sale_price }} บาท
-				</div>	
-			
-		@endforeach
-			</div>
-		</div>
-	</section>
-</div>

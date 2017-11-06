@@ -47,6 +47,9 @@
                     </ul>
                 </li>
                 @endif
+                @if (!Auth::guest()&&Auth::user()->name=="ping")
+                    <li class="upper-links"><a class="links" href="">ประวัติการสั่งซื้อ</a></li>
+                @endif
                 <!-- <li class="upper-links">
                     <a class="links" href="http://clashhacks.in/">
                         <svg class="" width="16px" height="12px" style="overflow: visible;">
@@ -68,7 +71,7 @@
                             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li><a href="{{url('data')}}">บัญชีผู้ใช้</a></li>
-              <li><a href="{{url('ch_pass')}}">เปลี่ยนรหัสผ่าน</a></li>
+              <li><a href="{{url('change-password')}}">เปลี่ยนรหัสผ่าน</a></li>
               <li role="separator" class="divider"></li>
               <li>
                                         <a href="{{ route('logout') }}"

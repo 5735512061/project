@@ -3,11 +3,11 @@
 @section('content')
 <div class="middlePage">
     <div class="page-header">
-      <h3 class="logo">ลูกค้าที่สมัครสมาชิกไว้แล้ว</h3>
+      <h3 class="logo">Please Sign In</h3>
     </div>
     <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title">Please Sign In</h3>
+    <h3 class="panel-title">ลูกค้าที่สมัครสมาชิกไว้แล้ว</h3>
   </div>
   <div class="panel-body">
   

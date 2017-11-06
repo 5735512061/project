@@ -1,0 +1,23 @@
+.boxes{
+    border:2px solid;
+    margin-bottom: 10px;
+}
+.img-upper{
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+.description{
+    text-align: justify;
+    padding: 10px;
+}
+.btn-primary{
+    margin-top: 10px;
+}
+.description h2{
+   margin-top: 0px;
+    height: 60px;
+    text-align: start;
+}
+img.img-responsive {
+    height: 155px;
+}

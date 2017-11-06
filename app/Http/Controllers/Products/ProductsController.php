@@ -130,10 +130,12 @@ class ProductsController extends Controller
     }
 
     public function buystore(Request $request){
-        $data = $request->get('id');
-        $products = DB::table('products')
-                ->where('id', $data)->get();
+        // $data = $request->get('id');
+        // $products = DB::table('products')
+        //         ->where('id', $data)->get();
 
+        // return view('buystore')->with('products',$products);
+        $products = Product::findOrFail($id);
         return view('buystore')->with('products',$products);
     }
 

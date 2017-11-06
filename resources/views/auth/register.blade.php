@@ -3,12 +3,12 @@
 @section('content')
 <div class="middlePage">
 <div class="page-header">
-  <h3 class="logo">สร้างบัญชีลูกค้าใหม่</h3>
+  <h3 class="logo">Register</h3>
 </div>
 
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title">Register</h3>
+    <h3 class="panel-title">สร้างบัญชีลูกค้าใหม่</h3>
   </div>
   <div class="panel-body">
   

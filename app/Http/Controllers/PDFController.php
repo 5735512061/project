@@ -9,7 +9,7 @@ use DB;
 class PDFController extends Controller
 {
 
-	private $curr_raw_time;
+	  private $curr_raw_time;
     private $curr_date;
     private $curr_date_time;
     public function __construct() {
@@ -28,7 +28,7 @@ class PDFController extends Controller
     }
     public function outstockpdf()
 	{
-	  $out = array();
+	    $out = array();
       $products = DB::table('products')->where('pro_amount','<', 30)->get();
       foreach ($products as $col) {
       	array_push($out, $col);
@@ -39,7 +39,7 @@ class PDFController extends Controller
 
     public function exppdf()
     {
-    	$curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
+    	 $curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
         $ages = DB::table('products')->get();
         $expire_count = 0;
         $exp = array();
@@ -52,7 +52,7 @@ class PDFController extends Controller
 
     public function balancepdf()
     {
-    	$product = DB::table('products')->get();
+    	  $product = DB::table('products')->get();
         $pdf = PDF::loadView('balancepdf',['products' => $product]);
         return @$pdf->stream();
     }

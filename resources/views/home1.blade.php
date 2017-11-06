@@ -9,35 +9,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/navbar.css">
     <link rel="stylesheet" type="text/css" href="css/filter.css">
+    <link rel="stylesheet" type="text/css" href="css/picture.css">
     <script src="test.js" type="text/javascript"></script>
-    <script>
-      $(document).ready(function(){
-
-    $(".filter-button").click(function(){
-        var value = $(this).attr('data-filter');
-        
-        if(value == "all")
-        {
-            //$('.filter').removeClass('hidden');
-            $('.filter').show('1000');
-        }
-        else
-        {
-//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-            $(".filter").not('.'+value).hide('3000');
-            $('.filter').filter('.'+value).show('3000');
-            
-        }
-    });
-    
-    if ($(".filter-button").removeClass("active")) {
-$(this).removeClass("active");
-}
-$(this).addClass("active");
-
-});
-    </script>
 </head>
 <body>
 
@@ -61,7 +34,7 @@ $(this).addClass("active");
                 <li class="upper-links"><a class="links" href="{{url('/products')}}">คลังสินค้า</a></li>
                 @endif
                 @if (!Auth::guest()&&Auth::user()->name=="หทัยชนก อินทนิน")
-                 <li class="upper-links dropdown"><a class="links">รายการสินค้า</a>
+                <li class="upper-links dropdown"><a class="links">รายการสินค้า</a>
                 <ul class="dropdown-menu">
                         <li class="profile-li"><a class="profile-links" href="{{url('/bestseller')}}">สินค้าขายดี</a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/out_of_stock')}}">สินค้าใกล้หมดคลัง</a></li>
@@ -69,6 +42,9 @@ $(this).addClass("active");
                         <li class="profile-li"><a class="profile-links" href="{{url('/balance')}}">สินค้าคงเหลือ</a></li>
                     </ul>
                 </li>
+                @endif
+                @if (!Auth::guest()&&Auth::user()->name=="ping")
+                    <li class="upper-links"><a class="links" href="">ประวัติการสั่งซื้อ</a></li>
                 @endif
           @if (Auth::guest())
                 <li class="upper-links"><a class="links" href="{{url('/login')}}">ลงชื่อเข้าใช้</a></li>
@@ -82,7 +58,7 @@ $(this).addClass("active");
                             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li><a href="{{url('data')}}">บัญชีผู้ใช้</a></li>
-              <li><a href="{{url('ch_pass')}}">เปลี่ยนรหัสผ่าน</a></li>
+              <li><a href="{{url('change-password')}}">เปลี่ยนรหัสผ่าน</a></li>
               <li role="separator" class="divider"></li>
               <li>
                                         <a href="{{ route('logout') }}"
@@ -140,8 +116,8 @@ $(this).addClass("active");
     @endif
 </div>
 <br>
-   <div class="container">
-        <div class="row">
+<div class="container">
+    <div class="row" align="center">
         <div align="center">
             <button class="btn btn-default filter-button" data-filter="all">สินค้าทั้งหมด</button>
             <button class="btn btn-default filter-button" data-filter="hdpe">ผัก</button>
@@ -150,89 +126,143 @@ $(this).addClass("active");
             <button class="btn btn-default filter-button" data-filter="irrigation">ของแห้ง</button>
             <button class="btn btn-default filter-button" data-filter="irrigation1">สินค้าทั่วไป</button>
         </div>
+    </div>
+</div>
         <br/>
+<div class="container">
+    <div class="row" align="center">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter hdpe">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/cucumber.jpg')}}" width = "100%" >
+                </div>
 
-
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="{{url('img/cucumber.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="{{url('img/asparagus.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="{{url('img/mushroom.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="{{url('img/onion.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="{{url('img/ginger.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="{{url('img/cabbage.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="{{url('img/ves.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="{{url('img/western.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="{{url('img/roseapple.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="{{url('img/persimmon.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="{{url('img/melon.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="{{url('img/rambutan.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="{{url('img/avocado.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="{{url('img/watermelon.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src="{{url('img/corn.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src="{{url('img/soya.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src="{{url('img/peanut.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src="{{url('img/pumpkin.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src="{{url('img/yam.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src="{{url('img/yamm.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src="{{url('img/garlic.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src="{{url('img/driedchilli.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src="{{url('img/shallots.jpg')}}" class="img-responsive">
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src="{{url('img/onionl.jpg')}}" class="img-responsive">
             </div>
         </div>
-    </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter hdpe">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/asparagus.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter hdpe">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/mushroom.jpg')}}" width = "100%">
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter hdpe">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/onion.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter hdpe">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/ginger.jpg')}}" width = "100%">
+                </div>
 
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter hdpe">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/cabbage.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter hdpe">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/ves.jpg')}}" width = "100%">
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter sprinkle">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/western.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter spray">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/corn.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter spray">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/soya.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter spray">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/peanut.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter spray">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/pumpkin.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter spray">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/yam.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter irrigation">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/garlic.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter irrigation">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/driedchilli.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter irrigation">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/shallots.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter irrigation">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/onionl.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+
+</div>
+</div>        
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/navbar.js') }}"></script>
+    <script src="{{ asset('js/filter.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </body>
 </html>
+
