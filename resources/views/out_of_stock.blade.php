@@ -31,9 +31,13 @@
               </span> Filter</button>
                 </div>
             </div>
+            <?php
+              $index1 = 0;
+            ?>
             <table class="table">
                 <thead>
                         <tr class="filters">
+                        <th><input type="text" class="form-control" placeholder="ลำดับ" disabled></th>
                         <th><input type="text" class="form-control" placeholder="รหัสสินค้า" disabled></th>
                         <th><input type="text" class="form-control" placeholder="ชื่อสินค้า" disabled></th>
                         <th><input type="text" class="form-control" placeholder="ประเภท" disabled></th>
@@ -46,9 +50,10 @@
                         <th><input type="text" class="form-control" placeholder="รูปภาพ" disabled></th>
                     </tr>
                     </thead>
-                                    @foreach($products as $index)
+                                    @foreach($products as $index1 => $index)
                                       <tbody>
                                             <tr>
+                                              <td style="width: 6%">{{$index1+1}}</td>
                                               <td style="width: 8%"><center>{{$index->id}}</center></td>
                                               <td style="width: 8%"><center>{{$index->pro_name}}</center></td>
                                               <td style="width: 8%"><center>{{$index->pro_type}}</center></td>

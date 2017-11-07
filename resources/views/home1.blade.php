@@ -249,13 +249,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter irrigation">
-            <div class="boxes">
-                <div class="img-upper">
-                    <img class="img-responsive" src="{{url('img/onionl.jpg')}}" width = "100%">
-                </div>
-            </div>
-        </div>
 
 </div>
 </div>        

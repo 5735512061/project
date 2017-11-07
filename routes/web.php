@@ -81,6 +81,8 @@ Route::get('/product_general','Products\\ProductsController@product_general');
 
 Route::post('/buystore/{id}','Products\\ProductsController@buystore');
 Route::get('/buystore','Products\\ProductsController@buygetstore');
+Route::post('/cart/{id}','Products\\ProductsController@cart');
+Route::get('/cart','Products\\ProductsController@cartget');
 
 //test
 Route::post('/upload','Products\\ProductsController@upload');

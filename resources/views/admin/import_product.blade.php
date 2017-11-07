@@ -28,8 +28,8 @@ $(function() {
     <a class='btn btn-info btn-md' href="{{url('/ExportProducts')}}"> <span class="glyphicon glyphicon-export"></span> Export Excel</a>
     <a class='btn btn-info btn-md' href="{{url('/pdf')}}"> <span class="glyphicon glyphicon-export"></span> Export PDF</a>
     <div class="pull-right">
-          <a class='btn btn-danger btn-md' href="{{url('/deleteAll')}}"><span class="glyphicon glyphicon-trash"></span> Delete All</a>
-          <a class='btn btn-danger btn-md' href="{{url('/deleteAll')}}"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+          <a class='btn btn-danger btn-md' href="{{url('/deleteAll')}}" onclick="return confirm('Are you sure to delete all ?')"><span class="glyphicon glyphicon-trash"></span> Delete All</a>
+          <a class='btn btn-danger btn-md' href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal2" role="dialog">

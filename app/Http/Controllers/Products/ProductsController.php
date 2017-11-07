@@ -129,13 +129,24 @@ class ProductsController extends Controller
         return redirect('products');
     }
 
-    public function buystore($id){
+    public function buystore(Request $request , $id){
         $products = Product::findOrFail($id);
-        return view('buystore')->with('products',$products);
+        $pp = DB::table('products') -> where('id',$id)->get();
+       // $cc = $request->get('picture')
+         //dd($pp[0]->picture);
+        return view('buystore')->with('products',$products)
+                              ->with('pp',$pp);
     }
 
     public function buygetstore(){    
         return view('product.vegetable');
+    }
+    public function cart(Request $request , $id){ 
+        $products = Product::findOrFail($id);   
+        return view('cart')->with('products',$products);
+    }
+    public function cartget(){    
+        return view('cart');
     }
 
     public function exp(Request $request){

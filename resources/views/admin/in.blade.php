@@ -1,6 +1,7 @@
 @extends('admin/template')
+@include('navbar')
 @section('test')
-<br><br>
+<br><br><br><br><br><br><br><br>
 <div class="container">
   <div class="panel-group">
 <div class="panel panel-primary">
@@ -59,12 +60,13 @@
                               หน่วยสินค้า :<select class="form-control" id="unit" name="unit">
                                         <option></option>
                                         <option>ลัง</option>
+                                        <option>ถุง</option>
                                     </select>
                             </div>
                             รูปภาพ :<input type="file" class="form-control" id="img" name="img" placeholder="img"><br>
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <button id="submit" name="submit" class="btn btn-primary">เพิ่มสินค้า</button>
+                                <button id="submit" name="submit" class="btn btn-success">เพิ่มสินค้า</button>
                             </div>
                   </div>     
                           </form>

@@ -1,8 +1,8 @@
 @extends('admin/template')
 @section('test')
 	<meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="css/image.css">
-  <link rel="stylesheet" type="text/css" href="css/picture.css">
+  <link rel="stylesheet" type="text/css" href="/css/image.css">
+  <link rel="stylesheet" type="text/css" href="/css/picture.css">
 @include('navbar')  
 <br><br><br><br><br><br><br><br>
 <div class="container">
