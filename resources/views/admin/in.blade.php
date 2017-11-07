@@ -1,12 +1,13 @@
 @extends('admin/template')
 @section('test')
-
-<div class="panel-body">
-  <div class="container">
+<br><br>
+<div class="container">
+  <div class="panel-group">
+<div class="panel panel-primary">
+      <div class="panel-heading">เพิ่มสินค้า</div>
+      <div class="panel-body">
     <div class="row">
-
-            <hr>
-                <div class="col-md-6">
+                <div class="col-md-4">
                           
                           <form  action="/products" method="post" role="form" enctype="multipart/form-data" ng-app="app" ng-controller="form">
                             <div class="form-group">  
@@ -32,12 +33,13 @@
                                      
                                     </select>
                             </div>
+                            
+                            
+                </div>
+                <div class="col-md-4">
                             <div class="form-group">
                               ต้นทุน (บาท):<input type="number" class="form-control" id="pro_price" name="pro_price" placeholder="ป้อนต้นทุน">
                             </div>
-                            
-                </div>
-                <div class="col-md-6">
                             <div class="form-group">
                               ราคาขาย (บาท):<input type="number" class="form-control" id="pro_sale_price" name="pro_sale_price" placeholder="ป้อนราคาขาย">
                             </div>
@@ -48,6 +50,8 @@
                             <div class="form-group">  
                               วันหมดอายุ :<input type="date" class="form-control" id="pro_ex_date" name="pro_ex_date">
                             </div>
+                </div>
+                <div class="col-md-4">
                             <div class="form-group">
                               จำนวน :<input type="number" class="form-control" id="pro_amount" name="pro_amount" placeholder="ป้อนจำนวนสินค้า">
                             </div>
@@ -62,32 +66,19 @@
                             <div class="form-group">
                                 <button id="submit" name="submit" class="btn btn-primary">เพิ่มสินค้า</button>
                             </div>
-                       
+                  </div>     
                           </form>
-                          <!--
-                          <form action="{{url('/upload')}}" method="post" enctype="multipart/form-data">
-                          {{CSRF_FIELD()}}
-
-                          
-                          <button id="submit" name="submit" class="btn btn-primary">อัพโหลดรูปภาพ</button>
-                          </form>
-                          -->
                         </div>
- </div>   
-
-                </div>  
+                      </div>
+                    <div>
+                  </div>
+                </div>
+              <div>
             </div>
-        </div>
-<!--  -->
-    </div>
-
-            </div>
-        </div>
-    </div>
-</div>
+          <div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
 <script>var app = angular.module('app', [], function ($interpolateProvider) {

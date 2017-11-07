@@ -4,7 +4,7 @@
   <link rel="stylesheet" type="text/css" href="css/image.css">
   <link rel="stylesheet" type="text/css" href="css/picture.css">
 @include('navbar')  
-<br><br>
+<br><br><br><br><br><br><br><br>
 <div class="container">
   <div class="row" align="center">
             <form action="{{url('buystore')}}" method="post" accept-charset="utf-8">

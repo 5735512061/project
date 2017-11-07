@@ -102,7 +102,7 @@ $(function() {
                                               <form method="POST" action="products/{{$col->id}}">
                                                <td class="text-center"><a class='btn btn-info btn-xs' href="products/{{$col->id}}/edit"><span class="glyphicon glyphicon-edit"></span> แก้ไข</a> 
                                                <input type="hidden" name="_method" value="Delete">
-                                               <button  class="btn btn-danger btn-xs">
+                                               <button  class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete ?')">
                                                <span class="glyphicon glyphicon-remove"></span> ลบ</button>{{csrf_field()}}
                                                </td>
                                                </form>
@@ -125,3 +125,11 @@ $(function() {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#confirm').on('click', function (e) {
+                $('#deletes').trigger('submit');
+            });
+        });
+    </script>

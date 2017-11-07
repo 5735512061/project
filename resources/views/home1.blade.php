@@ -16,6 +16,7 @@
 
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<div class="navbar-fixed-top">
 <div id="flipkart-navbar">
     <div class="container">
         <div class="row row1">
@@ -105,6 +106,7 @@
         </div>
     </div>
 </div>
+</div>
 <div id="mySidenav" class="sidenav">
     <div class="container" style="background-color: #2874f0; padding-top: 10px;">
         <span class="sidenav-heading">Menu</span>
@@ -115,7 +117,7 @@
     <a class="links" href="{{url('/products')}}">คลังสินค้า</a>
     @endif
 </div>
-<br>
+<br><br><br><br><br><br><br><br>
 <div class="container">
     <div class="row" align="center">
         <div align="center">

@@ -19,6 +19,7 @@
 <body>
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<div class="navbar-fixed-top">
 <div id="flipkart-navbar">
     <div class="container">
         <div class="row row1">
@@ -114,6 +115,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <div id="mySidenav" class="sidenav">
     <div class="container" style="background-color: #2874f0; padding-top: 10px;">

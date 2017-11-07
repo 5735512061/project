@@ -4,7 +4,7 @@
   <link rel="stylesheet" type="text/css" href="css/image.css">
   <link rel="stylesheet" type="text/css" href="css/picture.css">
 @include('navbar')  
-<br><br>
+<br><br><br><br><br><br><br><br>
 <div class="container">
   <div class="row" align="center">
             <form action="{{url('buystore')}}" method="post" accept-charset="utf-8">
@@ -13,6 +13,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                   <div class="boxes">
                     <div class="img-upper">
+                      <input type="hidden" value="{{$col->id}}" name="id">
                       <img src="uploads/images/vagitable/{{$col->picture}}" class="img-responsive" width="100%"><br>
                     </div>
                       <div class="description">

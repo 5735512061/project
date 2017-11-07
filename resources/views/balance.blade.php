@@ -18,7 +18,7 @@
     <link href="/css/lightbox.css" rel="stylesheet">
 
 @include('navbar')
-<br><br>
+<br><br><br><br><br><br><br><br>
 
 <div class="container">
         <div class="row">

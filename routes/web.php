@@ -79,7 +79,7 @@ Route::get('/plant','Products\\ProductsController@plant');
 Route::get('/dried_food','Products\\ProductsController@dried_food');
 Route::get('/product_general','Products\\ProductsController@product_general');
 
-Route::post('/buystore','Products\\ProductsController@buystore');
+Route::post('/buystore/{id}','Products\\ProductsController@buystore');
 Route::get('/buystore','Products\\ProductsController@buygetstore');
 
 //test
@@ -90,5 +90,6 @@ Route::get('/logout', 'Auth\LoginController@logout');
 //change-password
 Route::get('change-password', 'Auth\UpdatePasswordController@index')->name('password.form');
 Route::post('change-password', 'Auth\UpdatePasswordController@update')->name('password.update');
+
 
 });

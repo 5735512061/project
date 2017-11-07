@@ -129,12 +129,7 @@ class ProductsController extends Controller
         return redirect('products');
     }
 
-    public function buystore(Request $request){
-        // $data = $request->get('id');
-        // $products = DB::table('products')
-        //         ->where('id', $data)->get();
-
-        // return view('buystore')->with('products',$products);
+    public function buystore($id){
         $products = Product::findOrFail($id);
         return view('buystore')->with('products',$products);
     }
@@ -209,5 +204,4 @@ class ProductsController extends Controller
               echo 'Can not Upload';
         }
     }
-
 }

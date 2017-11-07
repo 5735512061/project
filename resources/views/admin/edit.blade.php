@@ -1,10 +1,13 @@
 @extends('admin/template')
 @section('test')
-<br>
-               <div class="panel-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
+<br><br>
+<div class="container">
+  <div class="panel-group">
+<div class="panel panel-primary">
+      <div class="panel-heading">เพิ่มสินค้า</div>
+      <div class="panel-body">
+    <div class="row">
+                <div class="col-md-4">
                           <form  action="/products/{{$product->id}}" method="post" role="form">
                             <div class="form-group">
                               
@@ -30,14 +33,14 @@
                                      
                                     </select>
                             </div>
+                </div>
+                <div class="col-md-4">         
                             <div class="form-group">
                               ต้นทุน (บาท):<input type="number" class="form-control" value="{{$product->pro_price}}" id="pro_price" name="pro_price" placeholder="ป้อนต้นทุน">
                             </div>
                             <div class="form-group">
                               ราคาขาย (บาท):<input type="number" class="form-control" value="{{$product->pro_sale_price}}" id="pro_sale_price" name="pro_sale_price" placeholder="ป้อนราคาขาย">
                             </div>
-                </div>
-                <div class="col-md-6">
                             <div class="form-group">
                               วันผลิต:
                               <input type="date" class="form-control" value="{{$product->pro_maf_date}}" id="pro_maf_date" name="pro_maf_date">
@@ -45,6 +48,8 @@
                             <div class="form-group">  
                               วันหมดอายุ :<input type="date" class="form-control" value="{{$product->pro_ex_date}}" id="pro_ex_date" name="pro_ex_date">
                             </div>
+                </div>
+                <div class="col-md-4">     
                             <div class="form-group">
                               จำนวน :<input type="number" class="form-control" value="{{$product->pro_amount}}" id="pro_amount" name="pro_amount" placeholder="ป้อนจำนวนสินค้า">
                             </div>
@@ -59,19 +64,17 @@
                             {{csrf_field()}}  
                                 <button id="submit" name="submit" class="btn btn-primary">อัพเดตสินค้า</button>
                             </div> 
-                          </div>         
+                </div>         
                          </form>
                         </div>
- 
+                      </div>
+                    <div>
+                  </div>
+                </div>
+              <div>
+            </div>
+          <div>
 
-                </div>  
-            </div>
- </div>
-    </div>
-            </div>
-        </div>
-    </div>
-</div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
