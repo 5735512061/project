@@ -24,9 +24,20 @@ $(function() {
   <div class="row">
   <form action="postImport" method="post" enctype="multipart/form-data">
   <!-- Trigger the modal with a button -->
+    
+    <!-- <a class='btn btn-info btn-md' href="{{url('/ExportProducts')}}"> <span class="glyphicon glyphicon-export"></span> Export Excel</a>
+    <a class='btn btn-info btn-md' href="{{url('/pdf')}}"> <span class="glyphicon glyphicon-export"></span> Export PDF</a> -->
     <a class='btn btn-success btn-md' data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-import"></span> Import Excel</a>
-    <a class='btn btn-info btn-md' href="{{url('/ExportProducts')}}"> <span class="glyphicon glyphicon-export"></span> Export Excel</a>
-    <a class='btn btn-info btn-md' href="{{url('/pdf')}}"> <span class="glyphicon glyphicon-export"></span> Export PDF</a>
+      <div class="btn-group">
+        <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-export"></span> Export</button>
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="{{url('/ExportProducts')}}">Export to Excel</a></li>
+          <li><a href="{{url('/pdf')}}">Export to PDF</a></li>
+        </ul>
+      </div>
     <div class="pull-right">
           <a class='btn btn-danger btn-md' href="{{url('/deleteAll')}}" onclick="return confirm('Are you sure to delete all ?')"><span class="glyphicon glyphicon-trash"></span> Delete All</a>
           <a class='btn btn-danger btn-md' href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
@@ -95,10 +106,7 @@ $(function() {
                                               <td style="width: 10%"><center>{{$col->pro_amount}} ({{$col->unit}})</center></td> 
                                               <td style="width: 6%"><center><a class="example-image-link" href="uploads/images/vagitable/{{$col->picture}}" data-lightbox="{{$col->id}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></center></td>
                                             <!--   <img src="uploads/images/vagitable/{{$col->picture}}"> -->
-                                                <!-- div class="text-center">
-                                                    <input min="0" max="3000" type="number" name="amount" value="{{$col->pro_amount}}">
-                                                </div> -->
-                                              
+     
                                               <form method="POST" action="products/{{$col->id}}">
                                                <td class="text-center"><a class='btn btn-info btn-xs' href="products/{{$col->id}}/edit"><span class="glyphicon glyphicon-edit"></span> แก้ไข</a> 
                                                <input type="hidden" name="_method" value="Delete">
@@ -115,10 +123,7 @@ $(function() {
                 </div>
 
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+ 
     <script src="{{ asset('js/testfilter.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/lightbox.js') }}"></script>

@@ -16,6 +16,7 @@
   <form action="{{url('cart')}}/{{$products->id}}" method="post" accept-charset="utf-8">
             {{csrf_field()}}
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                <div class="thumbnail">
                   <div class="boxes">
                     <div class="img-upper">
                        <input type="hidden" value="{{$products->id}}" name="id">         
@@ -27,9 +28,11 @@
                       </div>
                   </div>
                 </div>
-                
+                </div>
                 <div class="col-md-6">
                 <p class="sansserif">รายละเอียดสินค้า</p>
+                <hr>
+                <div class="thumbnail">
                   <div class="boxes">
                     <div class="img-upper">
                        <input type="hidden" value="{{$products->id}}" name="id">
@@ -45,6 +48,7 @@
                        {{$products->pro_amount}} {{$products->unit}}</div>
                     </div>
                   </div>
+                </div>
                 </div>
 
     </form>

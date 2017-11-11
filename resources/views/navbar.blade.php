@@ -9,11 +9,11 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-        <link rel="stylesheet" type="text/css" href="css/font-awesome-min.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-min.css">
-        <link rel="stylesheet" type="text/css" href="css/navbar.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="/css/font-awesome-min.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css">
+        <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
   
 </head>
 <body>
@@ -42,9 +42,9 @@
                 <li class="upper-links dropdown"><a class="links">รายการสินค้า</a>
                 <ul class="dropdown-menu">
                         <li class="profile-li"><a class="profile-links" href="{{url('/bestseller')}}">สินค้าขายดี</a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/out_of_stock')}}">สินค้าใกล้หมดคลัง</a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/exp')}}">สินค้าใกล้หมดอายุ</a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/balance')}}">สินค้าคงเหลือ</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/out_of_stock')}}">สินค้าใกล้หมดคลัง <span class="badge">6</span></a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/exp')}}">สินค้าใกล้หมดอายุ <span class="badge">20</span></a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/balance')}}">สินค้าคงเหลือ</span></a></li>
                     </ul>
                 </li>
                 @endif
@@ -62,13 +62,13 @@
                             {{ Auth::user()->name }}&nbsp;<span class="caret"></span>
                             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="{{url('data')}}">บัญชีผู้ใช้</a></li>
-              <li><a href="{{url('change-password')}}">เปลี่ยนรหัสผ่าน</a></li>
+              <li><a href="{{url('data')}}"><span class="glyphicon glyphicon-user"></span> บัญชีผู้ใช้</a></li>
+              <li><a href="{{url('change-password')}}"><span class="glyphicon glyphicon-cog"></span> เปลี่ยนรหัสผ่าน</a></li>
               <li role="separator" class="divider"></li>
               <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out"></span> 
                                             Logout
                                         </a>
 
@@ -83,8 +83,8 @@
           </div>
           <div class="row row2">
             <div class="col-sm-2">
-                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Brand</span></h2>
-                <h1 style="margin:0px;"><span class="largenav"></span></h1>
+                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Menu</span></h2>
+                <h1 style="margin:0px;"><span class="largenav"> KasetFarm </span></h1>
             </div>
             <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
                 <div class="row">
@@ -118,7 +118,7 @@
     <a href="http://clashhacks.in/">Link</a>
     <a href="http://clashhacks.in/">Link</a>
 </div>
-     <script src="{{ asset('js/navbar.js') }}"></script>
+    <script src="{{ asset('/js/navbar.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
       </div>

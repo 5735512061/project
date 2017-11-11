@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="css/filter.css">
-    <link rel="stylesheet" type="text/css" href="css/picture.css">
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/filter.css">
+    <link rel="stylesheet" type="text/css" href="/css/picture.css">
     <script src="test.js" type="text/javascript"></script>
 </head>
 <body>
@@ -38,8 +38,8 @@
                 <li class="upper-links dropdown"><a class="links">รายการสินค้า</a>
                 <ul class="dropdown-menu">
                         <li class="profile-li"><a class="profile-links" href="{{url('/bestseller')}}">สินค้าขายดี</a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/out_of_stock')}}">สินค้าใกล้หมดคลัง</a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/exp')}}">สินค้าใกล้หมดอายุ</a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/out_of_stock')}}">สินค้าใกล้หมดคลัง <span class="badge">6</span></a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/exp')}}">สินค้าใกล้หมดอายุ <span class="badge">20</span></a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/balance')}}">สินค้าคงเหลือ</a></li>
                     </ul>
                 </li>
@@ -58,13 +58,13 @@
                             {{ Auth::user()->name }}&nbsp;<span class="caret"></span>
                             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="{{url('data')}}">บัญชีผู้ใช้</a></li>
-              <li><a href="{{url('change-password')}}">เปลี่ยนรหัสผ่าน</a></li>
+              <li><a href="{{url('data')}}"><span class="glyphicon glyphicon-user"></span> บัญชีผู้ใช้</a></li>
+              <li><a href="{{url('change-password')}}"><span class="glyphicon glyphicon-cog"></span> เปลี่ยนรหัสผ่าน</a></li>
               <li role="separator" class="divider"></li>
               <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out"></span> 
                                             Logout
                                         </a>
 
@@ -82,8 +82,8 @@
         </div>
         <div class="row row2">
             <div class="col-sm-2">
-                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Brand</span></h2>
-                <h1 style="margin:0px;"><span class="largenav"></h1>
+                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Menu</span></h2>
+                <h1 style="margin:0px;"><span class="largenav"> KasetFarm </h1>
             </div>
             <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
                 <div class="row">
@@ -99,7 +99,7 @@
                 <a class="cart-button">
                     <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
                         <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 " fill="#fff "></path>
-                    </svg> ตระกร้า
+                    </svg> ตะกร้า
                     <span class="item-number ">0</span>
                 </a>
             </div>
@@ -252,9 +252,9 @@
 
 </div>
 </div>        
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/navbar.js') }}"></script>
-    <script src="{{ asset('js/filter.js') }}"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('/js/navbar.js') }}"></script>
+    <script src="{{ asset('/js/filter.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>

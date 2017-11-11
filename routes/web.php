@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test1', function () {
+    return view('test');
+});
+
 Route::get('/app', function () {
     return view('layouts.app');
 });
@@ -81,8 +85,9 @@ Route::get('/product_general','Products\\ProductsController@product_general');
 
 Route::post('/buystore/{id}','Products\\ProductsController@buystore');
 Route::get('/buystore','Products\\ProductsController@buygetstore');
-Route::post('/cart/{id}','Products\\ProductsController@cart');
-Route::get('/cart','Products\\ProductsController@cartget');
+//CartsController
+Route::post('/cart/{pro_id}','CartsController@cart');
+Route::get('/cart','CartsController@cartget');
 
 //test
 Route::post('/upload','Products\\ProductsController@upload');

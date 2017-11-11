@@ -3,7 +3,7 @@
 @section('test')
 <br><br><br><br><br><br><br><br>
 <div class="container">
-  <div class="panel-group">
+<div class="panel-group">
 <div class="panel panel-primary">
       <div class="panel-heading">เพิ่มสินค้า</div>
       <div class="panel-body">
