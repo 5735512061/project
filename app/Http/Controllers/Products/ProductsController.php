@@ -11,6 +11,7 @@ use Validator;
 use DB;
 use Storage;
 use putFile;
+use Auth;
 
 class ProductsController extends Controller
 {
@@ -129,6 +130,11 @@ class ProductsController extends Controller
         return redirect('products');
     }
 
+    public function navbar()
+    {
+    
+    }
+
     public function buystore(Request $request , $id){
         $products = Product::findOrFail($id);
         $pp = DB::table('products')->where('id',$id)->get();
@@ -207,4 +213,27 @@ class ProductsController extends Controller
               echo 'Can not Upload';
         }
     }
+    public function topbar (request $request)
+    {
+        if(!Auth::guest()&&Auth::user()->name=="หทัยชนก อินทนิน")
+        {
+        $name = $request->get('name');
+        $NUM_PAGE = 10;
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        $product = Product::Where('pro_name','like','%'.$name.'%')->paginate($NUM_PAGE);
+        return view('admin.product')->with('products',$product)
+                                    ->with('page',$page)
+                                    ->with('NUM_PAGE',$NUM_PAGE);
+        }
+        else
+        {
+        $name = $request->get('name');
+        $product = Product::Where('pro_name','like','%'.$name.'%')->get();
+        return view('product.vegetable')->with('products',$product); 
+
+        }
+    }
 }
+
+

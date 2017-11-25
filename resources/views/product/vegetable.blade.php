@@ -16,7 +16,7 @@
                   <div class="boxes">
                     <div class="img-upper">
                       <input type="hidden" value="{{$col->id}}" name="id">
-                      <img src="uploads/images/vagitable/{{$col->picture}}" class="img-responsive" width="100%"><br>
+                      <img src="/uploads/images/vagitable/{{$col->picture}}" class="img-responsive" width="100%"><br>
                     </div>
                       <div class="caption">
                           <label>สินค้า :</label>

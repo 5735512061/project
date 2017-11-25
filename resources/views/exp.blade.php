@@ -1,8 +1,8 @@
 @extends('admin/template')
 @section('test')
 	<meta charset="UTF-8">
-	<link href="{{asset('css/bootstrap-tableadmin.css')}}" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/testfilter.css">
+	<link href="{{asset('/css/bootstrap-tableadmin.css')}}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/testfilter.css">
   <link href="/css/lightbox.css" rel="stylesheet">
 
 @include('navbar')
@@ -70,10 +70,9 @@
 
                 </div>
   <!-- Scripts -->
-      <script src="{{ asset('js/app.js') }}"></script>
-      <script src="{{ asset('js/testfilter.js') }}"></script>
-      <script src="{{ asset('js/app.js') }}"></script>
-      <script src="{{ asset('js/lightbox.js') }}"></script>
+      <script src="{{ asset('/js/app.js') }}"></script>
+      <script src="{{ asset('/js/testfilter.js') }}"></script>
+      <script src="{{ asset('/js/lightbox.js') }}"></script>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>

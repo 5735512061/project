@@ -1,8 +1,8 @@
 @extends('admin/template')
 @section('test')
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="css/image.css">
-  <link rel="stylesheet" type="text/css" href="css/picture.css">
+  <link rel="stylesheet" type="text/css" href="/css/image.css">
+  <link rel="stylesheet" type="text/css" href="/css/picture.css">
 @include('navbar')  
 <br><br><br><br><br><br><br><br>
 <div class="container">
@@ -16,7 +16,7 @@
                   <div class="boxes">
                     <div class="img-upper">
                       <input type="hidden" value="{{$col->id}}" name="id">
-                      <img src="uploads/images/vagitable/{{$col->picture}}" class="img-responsive" width="100%"><br>
+                      <img src="/uploads/images/vagitable/{{$col->picture}}" class="img-responsive" width="100%"><br>
                     </div>
                       <div class="caption">
                           <label>สินค้า :</label>
@@ -35,5 +35,5 @@
 </div>    
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('/js/app.js') }}"></script>
 @endsection

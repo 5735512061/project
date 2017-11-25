@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Kaset-Warehouse',
+    'name' => 'Kaset',
     'nav' => 'คลังสินค้า',
 
     /*
@@ -179,6 +179,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
 
     ],
 
@@ -231,6 +232,7 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Input' => Illuminate\Support\Facades\Input::class,
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
 
     ],
 

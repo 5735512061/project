@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link href="{{asset('css/bootstrap-tableadmin.css')}}" rel="stylesheet">
+	<link href="{{asset('/css/bootstrap-tableadmin.css')}}" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
@@ -20,30 +20,6 @@
 @include('navbar')
 @include('admin.leftmenu')
 
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                  <nav class="navbar navbar-default">
-                      <div class="container-fluid">
-                        <div class="navbar-header">
-                          
-                        </div>
-                        <ul class="nav navbar-nav">
-                            <li><a href="home1">หน้าแรก</a></li>
-                            <li><a href="product">คลังสินค้า</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">บทความ</a></li>
-                            <li><a href="#">กระดานถาม-ตอบ</a></li>
-                        </ul>
-                      </div>
-                  </nav>
-
-              </div> -->
-<!-- 
-                <div class="panel-body"> -->
                    <div class="container">
                   <div class="row">
                       <div class="col-md-9">
@@ -59,7 +35,7 @@
                             <th>เข้าใช้งานล่าสุด</th> -->
                             <th>สิทธิ์การใช้งาน</th>
                             <th>สถานะ</th>
-                            <th><center><span  style="padding-left:5px" ><a class='btn btn-primary btn-xs' href="addusers/create"><span class="glyphicon glyphicon-plus"></span> เพิ่มผู้ใช้งาน</a></center></th>
+                            <th><center><span  style="padding-left:5px" ><a class='btn btn-primary btn-xs' href="/addusers/create"><span class="glyphicon glyphicon-plus"></span> เพิ่มผู้ใช้งาน</a></center></th>
                         </tr>
                     </thead>
 
@@ -100,7 +76,7 @@
 
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('/js/app.js') }}"></script>
 	
 </body>
 </html>

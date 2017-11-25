@@ -73,9 +73,6 @@
                                               <td>{{$col->pro_maf_date}}</td>
                                               <td>{{$col->pro_ex_date}}</td>
                                               <td>{{$col->pro_amount}} ({{$col->unit}})
-                                                <!-- div class="text-center">
-                                                    <input min="0" max="3000" type="number" name="amount" value="{{$col->pro_amount}}">
-                                                </div> -->
                                               </td>
                                             </tr>
                                       </tbody>

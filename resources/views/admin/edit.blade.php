@@ -9,7 +9,7 @@
       <div class="panel-body">
     <div class="row">
                 <div class="col-md-4">
-                          <form  action="/products/{{$product->id}}" method="post" role="form">
+                          <form  action="/products/{{$product->id}}" method="post" role="form" ng-app="app" ng-controller="form">
                             <div class="form-group">
                               
                               รหัสสินค้า :<input type="text" class="form-control" value="{{$product->id}}" id="id" name="id" placeholder="ป้อนรหัสสินค้า">
@@ -102,7 +102,7 @@
           <div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
 <script>var app = angular.module('app', [], function ($interpolateProvider) {

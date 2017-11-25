@@ -4,8 +4,8 @@
   <link rel="stylesheet" type="text/css" href="/css/image.css">
   <link rel="stylesheet" type="text/css" href="/css/picture.css">
   <link rel="stylesheet" type="text/css" href="/css/minus-input.css">
-
-
+<link href="/css/lightbox.css" rel="stylesheet">
+<script src="/js/lightbox.js"></script>
 <br><br><br><br><br><br><br><br>            
 	<div class="container">
 	<div class="row">
@@ -19,57 +19,57 @@
                 <th>ลำดับ</th>
                 <th>ชื่อสินค้า</th>
                 <th>จำนวน (หน่วย)</th>
-                <th>ราคา (บาท)</th>
+                <th>ราคา/หน่วย (บาท)</th>
                 <th>ราคารวม (บาท)</th>
                 <th>ยกเลิก</th>
             </tr>
         </thead>
+        @foreach($cart as $index=>$col)
         <tbody>
             <tr>
                 <td>{{$index+1}}</td>
-                <td>{{$products->pro_name}}</td>
                 <td>
-    <div class="col-xs-6">
-        <div class="input-group">
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
-                <span class="glyphicon glyphicon-minus"></span>
-              </button>
-          </span>
-          <input type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="100">
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
-                  <span class="glyphicon glyphicon-plus"></span>
-              </button>
-          </span>
-      </div>
-    </div>{{$products->unit}}
+                  <?php echo (DB::table('products')->where('id',$col->pro_id)->value('pro_name'));?>
+                </td>
+                <td>{{$col->amount}} <?php echo (DB::table('products')->where('id',$col->pro_id)->value('unit'));?>
+                </td>
+                <td>
+                  <div class="col-xs-6">
+                    <input class="form-control"  value="<?php echo (DB::table('products')->where('id',$col->pro_id)->value('pro_sale_price'));?>">
+                  </div>
                 </td>
                 <td>
                 	<div class="col-xs-6">
-                		<input class="form-control" value="{{$products->pro_sale_price}}">
-                	</div>
-                </td>
+                    <input class="form-control">
+                  </div>
+                </td> 
                 <td>
-                	<div class="col-xs-6">
-                		<input class="form-control" value="">
-                	</div>
+                  <div class="col-xs-6">
+                    <input type="hidden" name="_method" value="Delete">
+                      <a href="/cart/{{$col->cart_id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete ?')">
+                      <span class="glyphicon glyphicon-remove"></span></a>
+                  </div>
                 </td>
-                <form method="POST" action="{{$products->id}}">
-                <td>
-                	<button  class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to cancel ?')">
-                       <span class="glyphicon glyphicon-remove-sign"></span>
-                    </button>
-                </td>
-                </form>
             </tr>
+            
+            @endforeach
             <tr>
-                <th colspan="5"><span class="pull-right">รวม</span></th>
+                <th colspan="5"><span class="pull-right">รวมทั้งหมด (บาท)</span></th>
                 <th></th>
-            </tr>
+            </tr>  
+
             <tr>
-                <td><a href="{{url('/vegetable')}}" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-hand-left"></span> เพิ่มรายการสินค้า</a></td>
-                <td colspan="5"><a href="#" class="pull-right btn btn-success btn-md"><span class="glyphicon glyphicon-hand-right"></span> สั่งซื้อสินค้า</a></td>
+                  <td><a href="{{url('/vegetable')}}" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-hand-left"></span> เพิ่มรายการสินค้า</a></td>
+                  <td colspan="5"><form action="{{url('/bill')}}" method="post">
+         {{ CSRF_FIELD() }}
+        @foreach($cart as $index=>$col)
+        <input type="hidden" name="carts[ {{$index}} ]" value="{{$col->cart_id}}">
+        @endforeach
+        <button type="submit" class="pull-right btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-hand-right"></span> สั่งซื้อสินค้า
+                  </button>
+              </form>
+        </td>
             </tr>
         </tbody>
     </table>

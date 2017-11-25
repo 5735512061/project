@@ -8,5 +8,5 @@
 @include('admin.import_product')
 
 	<!-- Scripts -->
-	    <script src="{{ asset('js/app.js') }}"></script>
+	    <script src="{{ asset('/js/app.js') }}"></script>
 @endsection

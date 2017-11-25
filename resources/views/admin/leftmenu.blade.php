@@ -17,22 +17,22 @@
                                         <table class="table">
                                             <tr>
                                                 <td>
-                                                    <a href="{{url('bestseller')}}">สินค้าขายดี</a>
+                                                    <a href="{{url('/bestseller')}}">สินค้าขายดี</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="{{url('out_of_stock')}}">สินค้าใกล้หมดคลัง</a>
+                                                    <a href="{{url('/out_of_stock')}}">สินค้าใกล้หมดคลัง</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="{{url('exp')}}">สินค้าใกล้หมดอายุ</a>
+                                                    <a href="{{url('/exp')}}">สินค้าใกล้หมดอายุ</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="{{url('balance')}}">สินค้าคงเหลือ</a>
+                                                    <a href="{{url('/balance')}}">สินค้าคงเหลือ</a>
                                                 </td>
                                             </tr>    
                                         </table>
@@ -51,18 +51,18 @@
                                         <table class="table">
                                             <tr>
                                                 <td>
-                                                    <a href="{{url('data')}}">ข้อมูลส่วนตัว</a>
+                                                    <a href="{{url('/data')}}">ข้อมูลส่วนตัว</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="{{url('ch_pass')}}">เปลี่ยนรหัสผ่าน</a>
+                                                    <a href="{{url('/ch_pass')}}">เปลี่ยนรหัสผ่าน</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                             @if (Auth::user()->name=="หทัยชนก อินทนิน")
                                                 <td>
-                                                    <a href="{{url('adduser')}}">ผู้ใช้งานระบบ</a> <span class="label label-info"></span>
+                                                    <a href="{{url('/adduser')}}">ผู้ใช้งานระบบ</a> <span class="label label-info"></span>
                                                 </td>
                                             </tr>
                                             @endif
@@ -83,7 +83,7 @@
                                             <tr>
                                                 <td>
                                                     <a href="">รายละเอียดสินค้า</a><span><div class="pull-right">
-                                                    <a href="{{url('pdf')}}" class="btn btn-xs btn-primary">Export PDF</a>
+                                                    <a href="{{url('/pdf')}}" class="btn btn-xs btn-primary">Export PDF</a>
                                                     </div></span>
                                                 </td>
                                             </tr>

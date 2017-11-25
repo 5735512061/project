@@ -11,6 +11,7 @@
 |
 */
 
+use App\Cart;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,17 +28,23 @@ Route::get('/app', function () {
 
 Auth::routes();
 Route::get('/home1', function () {
+	if(Auth::guest()){
+		
+	}else {
+		$cart = Cart::where('user_id',Auth::user()->id)->get();
+    	session(['countCart' => $cart->count()]); 
+	}
     return view('home1');
 });
 
 Route::get('/testfilter', function () {
     return view('testfilter');
 });
-Route::get('/test', function () {
-    return view('testnav');
+Route::get('/navbar', function () {
+	$cart = Cart::where('user_id',Auth::user()->id)->get();
+    session(['countCart' => $cart->count()]); 
+    return view('navbar');
 });
-
-
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -86,9 +93,10 @@ Route::get('/product_general','Products\\ProductsController@product_general');
 Route::post('/buystore/{id}','Products\\ProductsController@buystore');
 Route::get('/buystore','Products\\ProductsController@buygetstore');
 //CartsController
-Route::post('/cart/{pro_id}','CartsController@cart');
+Route::post('/cart','CartsController@cart');
 Route::get('/cart','CartsController@cartget');
-
+Route::get('/cart/{cart_id}','CartsController@destroycart');
+Route::post('/bill','CartsController@bill');
 //test
 Route::post('/upload','Products\\ProductsController@upload');
 
@@ -97,6 +105,10 @@ Route::get('/logout', 'Auth\LoginController@logout');
 //change-password
 Route::get('change-password', 'Auth\UpdatePasswordController@index')->name('password.form');
 Route::post('change-password', 'Auth\UpdatePasswordController@update')->name('password.update');
+Route::post('/products','Products\\ProductsController@topbar');
+
+//session cart
+// Route::get('/add-to-cart/{id}','CartsController@getAddToCart');
 
 
 });

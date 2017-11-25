@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="css/testfilter.css">
+<link rel="stylesheet" type="text/css" href="/css/testfilter.css">
 <link href="/css/lightbox.css" rel="stylesheet">
 <script src="/js/lightbox.js"></script>
 <script type="text/javascript">
@@ -104,11 +104,11 @@ $(function() {
                                               <td style="width: 8%"><center>{{$col->pro_maf_date}}</center></td>
                                               <td style="width: 8%"><center>{{$col->pro_ex_date}}</center></td>
                                               <td style="width: 10%"><center>{{$col->pro_amount}} ({{$col->unit}})</center></td> 
-                                              <td style="width: 6%"><center><a class="example-image-link" href="uploads/images/vagitable/{{$col->picture}}" data-lightbox="{{$col->id}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></center></td>
+                                              <td style="width: 6%"><center><a class="example-image-link" href="/uploads/images/vagitable/{{$col->picture}}" data-lightbox="{{$col->id}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></center></td>
                                             <!--   <img src="uploads/images/vagitable/{{$col->picture}}"> -->
      
-                                              <form method="POST" action="products/{{$col->id}}">
-                                               <td class="text-center"><a class='btn btn-info btn-xs' href="products/{{$col->id}}/edit"><span class="glyphicon glyphicon-edit"></span> แก้ไข</a> 
+                                              <form method="POST" action="/products/{{$col->id}}">
+                                               <td class="text-center"><a class='btn btn-info btn-xs' href="/products/{{$col->id}}/edit"><span class="glyphicon glyphicon-edit"></span> แก้ไข</a> 
                                                <input type="hidden" name="_method" value="Delete">
                                                <button  class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete ?')">
                                                <span class="glyphicon glyphicon-remove"></span> ลบ</button>{{csrf_field()}}
@@ -124,9 +124,9 @@ $(function() {
 
                 </div>
  
-    <script src="{{ asset('js/testfilter.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/lightbox.js') }}"></script>
+    <script src="{{ asset('/js/testfilter.js') }}"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('/js/lightbox.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>

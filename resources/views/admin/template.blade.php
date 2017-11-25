@@ -4,7 +4,7 @@
 	
 	@include('header')
 	<!-- <title> @yield('title')</title> -->
-  <title>KASET WMS ระบบคลังสินค้าทางการเกษตร</title>
+  <title>KASET FARM</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" type="text/css" href="/css/app.css">
@@ -41,6 +41,6 @@
 		@section('content')
 		@show	
 	</div>
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('/js/app.js') }}"></script>
 </body>
 </html>
