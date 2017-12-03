@@ -12,6 +12,7 @@
 */
 
 use App\Cart;
+use App\Product;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,8 +42,12 @@ Route::get('/testfilter', function () {
     return view('testfilter');
 });
 Route::get('/navbar', function () {
-	$cart = Cart::where('user_id',Auth::user()->id)->get();
-    session(['countCart' => $cart->count()]); 
+	if(Auth::guest()){
+		
+	}else {
+		$cart = Cart::where('user_id',Auth::user()->id)->get();
+    	session(['countCart' => $cart->count()]); 
+	}    
     return view('navbar');
 });
 
@@ -96,7 +101,8 @@ Route::get('/buystore','Products\\ProductsController@buygetstore');
 Route::post('/cart','CartsController@cart');
 Route::get('/cart','CartsController@cartget');
 Route::get('/cart/{cart_id}','CartsController@destroycart');
-Route::post('/bill','CartsController@bill');
+Route::post('/bill','BillsController@bill');
+
 //test
 Route::post('/upload','Products\\ProductsController@upload');
 

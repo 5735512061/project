@@ -36,9 +36,17 @@
                 @endif
                 @if (!Auth::guest()&&Auth::user()->name=="หทัยชนก อินทนิน")
                 <li class="upper-links dropdown"><a class="links"><span class="glyphicon glyphicon-list-alt"></span> รายการสินค้า</a>
+                <?php
+                    $out = array();
+                    $amount = DB::table('products')->where('pro_amount', '<', 30)->get();
+                        foreach ($amount as $item) {
+                            
+                            array_push($out, $item);
+                        }
+                 ?>
                 <ul class="dropdown-menu">
                         <li class="profile-li"><a class="profile-links" href="{{url('/bestseller')}}">สินค้าขายดี</a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/out_of_stock')}}">สินค้าใกล้หมดคลัง <span class="badge">6</span></a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/out_of_stock')}}">สินค้าใกล้หมดคลัง <span class="badge">{{count($out)}}</span></a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/exp')}}">สินค้าใกล้หมดอายุ <span class="badge">20</span></a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/balance')}}">สินค้าคงเหลือ</a></li>
                     </ul>

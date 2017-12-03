@@ -130,11 +130,6 @@ class ProductsController extends Controller
         return redirect('products');
     }
 
-    public function navbar()
-    {
-    
-    }
-
     public function buystore(Request $request , $id){
         $products = Product::findOrFail($id);
         $pp = DB::table('products')->where('id',$id)->get();

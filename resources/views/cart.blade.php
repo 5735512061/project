@@ -40,7 +40,8 @@
                 </td>
                 <td>
                 	<div class="col-xs-6">
-                    <input class="form-control">
+                    <input class="form-control" value="<?php echo (DB::table('products')->where('id',$col->pro_id)->value('pro_sale_price'))*$col->amount; 
+                      ?>">
                   </div>
                 </td> 
                 <td>
@@ -55,7 +56,7 @@
             @endforeach
             <tr>
                 <th colspan="5"><span class="pull-right">รวมทั้งหมด (บาท)</span></th>
-                <th></th>
+                <th colspan="5">{{$total}}</th>
             </tr>  
 
             <tr>
