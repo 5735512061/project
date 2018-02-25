@@ -38,32 +38,10 @@
 						</span>
 					</div>
 				</div>
-
+<form action="{{url('/success')}}" method="post">
+			{{ CSRF_FIELD() }}
 				<div class="widget-body">
 					<div class="widget-main padding-24">
-						<!-- <div class="row">
-							<div class="col-xs-3">
-								<div class="row">
-									<div class="alert alert-info">
-    									<center><strong>ข้อมูลลูกค้า</strong></center>
-  									</div>
-								</div>
-
-								<div>
-									<ul class="list-unstyled spaced">
-										<li>
-											<i class="ace-icon fa fa-caret-right blue"></i>Street, City
-										</li>
-										<li class="divider"></li>
-										<div class="row">
-											<div class="alert alert-success">
-    											<center><strong>รายละเอียดการสั่งซื้อ</strong></center>
-  											</div>
-										</div>
-									</ul>
-								</div>
-							</div>
-						</div> -->
 						<div class="space"></div>
 
 						<div>
@@ -78,18 +56,23 @@
 										<th>ราคารวม (บาท)</th>
 									</tr>
 								</thead>
+			
 							@foreach($cart as $index=>$col)
 								<tbody>
 									<tr>
 										<td class="center">{{$index+1}}</td>
 										<td>
 											<?php echo (DB::table('products')->where('id',$col->pro_id)->value('pro_name'));?>
+											<input type="hidden" value="<?php echo (DB::table('products')->where('id',$col->pro_id)->value('pro_name'));?>" name="pro_name[]">
 										</td>
 										<td class="hidden-xs">
 											{{$col->amount}} <?php echo (DB::table('products')->where('id',$col->pro_id)->value('unit'));?>
+											<input type="hidden" value="{{$col->amount}}" name="amount[]">
+											<input type="hidden" value="<?php echo (DB::table('products')->where('id',$col->pro_id)->value('unit'));?>" name="unit[]">
 										</td>
 										<td class="hidden-480">
 											<?php echo (DB::table('products')->where('id',$col->pro_id)->value('pro_sale_price'));?>
+											<input type="hidden" value="<?php echo (DB::table('products')->where('id',$col->pro_id)->value('pro_sale_price'));?>" name="pro_sale_price[]">
 										</td>
 										<td>
 											<?php echo (DB::table('products')->where('id',$col->pro_id)->value('pro_sale_price'))*$col->amount; 
@@ -97,6 +80,8 @@
 										</td>
 									</tr>
 								</tbody>
+								<?php  $name = (DB::table('products')->where('id',$col->pro_id)->value('pro_name'));?>
+						    <input type="hidden" value="{{$name}}" name="name[]">
 							@endforeach
 							</table>
 
@@ -114,6 +99,7 @@
 						<div class="well" align="center">
 							<button class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> สั่งซื้อ</button>
 						</div>
+					</form>
 					</div>
 				</div>
 			</div>

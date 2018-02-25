@@ -163,6 +163,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Thatphon05\TrueWallet\TrueWalletServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -180,6 +182,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
+        Milon\Barcode\BarcodeServiceProvider::class,
 
     ],
 
@@ -233,6 +236,9 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+        'Wallet' => Thatphon05\TrueWallet\Facades\TrueWallet::class,
+        'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
+        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
 
     ],
 

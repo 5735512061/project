@@ -8,8 +8,8 @@
       <div class="panel-heading">แก้ไขรายละเอียดสินค้า</div>
       <div class="panel-body">
     <div class="row">
+    <form  action="/products/{{$product->id}}" method="post" role="form" ng-app="app" ng-controller="form" enctype="multipart/form-data">
                 <div class="col-md-4">
-                          <form  action="/products/{{$product->id}}" method="post" role="form" ng-app="app" ng-controller="form">
                             <div class="form-group">
                               
                               รหัสสินค้า :<input type="text" class="form-control" value="{{$product->id}}" id="id" name="id" placeholder="ป้อนรหัสสินค้า">
@@ -78,12 +78,23 @@
                             <div class="form-group">
                               จำนวน :<input type="number" class="form-control" value="{{$product->pro_amount}}" id="pro_amount" name="pro_amount" placeholder="ป้อนจำนวนสินค้า">
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                               หน่วยสินค้า :<select class="form-control" id="unit" name="unit" value="{{$product->unit}}">
                                         <option>ลัง</option>
                                         <option>ถุง</option>
+                                        <option>แผง</option>
                                     </select>
-                            </div>
+                            </div> -->
+                            <div class="form-inline"><body onload="hiddenn('0')">
+                              หน่วยสินค้า :
+                                        <input type="radio" name="unit" value="กิโลกรัม" onclick="hiddenn('0')"> กิโลกรัม
+                                        <input type="radio" name="unit" value="ลัง" onclick="hiddenn('0')"> ลัง
+                                        <input type="radio" name="unit" value="แผง" onclick="hiddenn('0')"> แผง
+                                        <input type="radio" name="unit" value="ถุง" onclick="hiddenn('0')"> ถุง
+                                        <input type="radio" name="unit" value="กำ" onclick="hiddenn('0')"> กำ
+                                        <input type="radio" name="unit" onclick="hiddenn('1')"> อื่น ๆ
+                                        <input type="text" name="txt1" id="txt1"  class="form-control" style="width:150px;">
+                            </div><br>
                             รูปภาพ :<input type="file" class="form-control" id="img" name="img" placeholder="img"><br>
                             <div class="form-group">
                             <input type="hidden" name="_method" value="PUT">
@@ -124,5 +135,14 @@
               {tpye:"สินค้าทั่วไป",name:'สินค้าอุปโภค'},{tpye:"สินค้าทั่วไป",name:'สินค้าบริโภค'},
             ]
         });
+</script>
+<script>
+function hiddenn(pvar) {
+   if(pvar==0){
+    document.getElementById("txt1").style.display = 'none';
+   }else{
+   document.getElementById("txt1").style.display = '';
+   }   
+}
 </script>
 @endsection

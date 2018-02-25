@@ -18,7 +18,7 @@
 <body>
 
 @include('navbar')
-@include('admin.leftmenu')
+<br><br><br><br><br><br><br><br>
 
                    <div class="container">
                   <div class="row">

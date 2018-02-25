@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="/css/filter.css">
     <link rel="stylesheet" type="text/css" href="/css/picture.css">
@@ -43,18 +44,28 @@
                             
                             array_push($out, $item);
                         }
-                 ?>
+                   
+                    $curr_raw_time = getdate();
+                    $curr_date  = $curr_raw_time['year'].'-'.$curr_raw_time['mon'].'-'.$curr_raw_time['mday'];
+
+                    $ages = DB::table('products')->get();
+                    $expire_count = 0;
+                    foreach ($ages as $col) {
+                        if ((strtotime($col->pro_ex_date) - strtotime($curr_date)) / (60*60*24) <= 3)
+                            $expire_count++;
+                    }
+                ?>
                 <ul class="dropdown-menu">
-                        <li class="profile-li"><a class="profile-links" href="{{url('/bestseller')}}">สินค้าขายดี</a></li>
+                        
                         <li class="profile-li"><a class="profile-links" href="{{url('/out_of_stock')}}">สินค้าใกล้หมดคลัง <span class="badge">{{count($out)}}</span></a></li>
-                        <li class="profile-li"><a class="profile-links" href="{{url('/exp')}}">สินค้าใกล้หมดอายุ <span class="badge">20</span></a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/exp')}}">สินค้าใกล้หมดอายุ <span class="badge">{{$expire_count}}</span></a></li>
+                        <li class="profile-li"><a class="profile-links" href="{{url('/bestseller')}}">สินค้าขายดี</a></li>
                         <li class="profile-li"><a class="profile-links" href="{{url('/balance')}}">สินค้าคงเหลือ</a></li>
                     </ul>
                 </li>
                 @endif
-                @if (!Auth::guest()&&Auth::user()->name!=="หทัยชนก อินทนิน")
-                    <li class="upper-links"><a class="links" href="">ประวัติการสั่งซื้อ</a></li>
-                @endif
+                
+
           @if (Auth::guest())
                 <li class="upper-links"><a class="links" href="{{url('/login')}}">ลงชื่อเข้าใช้</a></li>
                 <li class="upper-links"><a class="links" href="{{url('/register')}}">สมัครสมาชิก</a></li>
@@ -91,11 +102,11 @@
         <div class="row row2">
             <div class="col-sm-2">
                 <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Menu</span></h2>
-                <a href="{{url('/home1')}}"><img src="{{url('/img/logo.png')}}" width="105%"></a>
+                <a href="{{url('/home1')}}"><img src="{{url('/img/logo4.png')}}" width="120%"></a>
             </div>
             <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
                 <div class="row">
-                <form action="{{url('/products')}}" method="post" accept-charset="utf-8">
+                <form action="{{url('/search')}}" method="post" accept-charset="utf-8">
                {{csrf_field()}}
                    <input class="flipkart-navbar-input col-xs-11" type="text" placeholder="ค้นหาสินค้าหรือหมวดหมู่สินค้า" name="name">
                     <button class="flipkart-navbar-button col-xs-1" type="submit">
@@ -267,6 +278,13 @@
             <div class="boxes">
                 <div class="img-upper">
                     <img class="img-responsive" src="{{url('img/shallots.jpg')}}" width = "100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 filter irrigation1">
+            <div class="boxes">
+                <div class="img-upper">
+                    <img class="img-responsive" src="{{url('img/egg.jpg')}}" width = "100%">
                 </div>
             </div>
         </div>

@@ -17,6 +17,13 @@ use App\Product;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/chart', function () {
+    return view('chart');
+});
+Route::get('/piechart', function () {
+    return view('piechart');
+});
+
 
 Route::get('/test1', function () {
     return view('test');
@@ -58,6 +65,7 @@ Route::resource('addusers','Addusers\\AddusersController');
 Route::resource('datas','Datas\\DatasController');
 Route::get('/home', 'HomeController@index');
 Route::get('/product','Products\\ProductsController@index');
+Route::delete('/dodeleteAll','Products\\ProductsController@deleteall');
 Route::get('/adduser','Addusers\\AddusersController@index');
 Route::get('/data','Datas\\DatasController@index');
 
@@ -87,7 +95,11 @@ Route::post('/postImport','ExcelController@postImport');
 Route::get('/deleteAll','ExcelController@deleteAll');
 
 
-Route::get('/search2','SearchController@search2');
+Route::post('/search','SearchsController@search');
+Route::get('/search','SearchsController@search');
+
+Route::get('delete', 'Products\\ProductsController@delete');
+Route::post('delete', 'Products\\ProductController@postDelete');
 
 Route::get('/vegetable','Products\\ProductsController@vegetable');
 Route::get('/fruit','Products\\ProductsController@fruit');
@@ -102,7 +114,10 @@ Route::post('/cart','CartsController@cart');
 Route::get('/cart','CartsController@cartget');
 Route::get('/cart/{cart_id}','CartsController@destroycart');
 Route::post('/bill','BillsController@bill');
-
+Route::get('/bill','BillsController@bill');
+Route::post('/success','CartsController@delstore');
+Route::get('/success','CartsController@delstore');
+Route::get('/orderhistory','BillsController@orderhistory');
 //test
 Route::post('/upload','Products\\ProductsController@upload');
 
@@ -111,10 +126,26 @@ Route::get('/logout', 'Auth\LoginController@logout');
 //change-password
 Route::get('change-password', 'Auth\UpdatePasswordController@index')->name('password.form');
 Route::post('change-password', 'Auth\UpdatePasswordController@update')->name('password.update');
-Route::post('/products','Products\\ProductsController@topbar');
 
 //session cart
 // Route::get('/add-to-cart/{id}','CartsController@getAddToCart');
 
+Route::post('in','Products\\ProductsController@showreport');
 
+Route::get('barcode','ProduitController@index');
+// Route::get('/dashboard', [
+// 		'user' => 'ChatController@getDashboard',
+// 		'as' => 'dashboard',
+// 		'middleware' => 'auth',
+// 	]);
+// Route::post('/createpost', [
+// 		'user' => 'ChatController@postCreatePost',
+// 		'as' => 'post.create',
+// 		'middleware' => 'auth',
+// 	]);
+
+Route::get('/dashboard','ChatController@getDashboard');
+Route::post('/createpost','ChatController@postCreatePost');
+
+Route::post('/top','CartsController@top');
 });

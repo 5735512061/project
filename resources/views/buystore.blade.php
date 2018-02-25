@@ -51,8 +51,6 @@
                        {{$products->pro_sale_price}} บาท / {{$products->unit}}</div>
                        <div><label>จำนวนสินค้า :</label>
                        {{$products->pro_amount}} {{$products->unit}}</div>
-                       <div><label>** หมายเหตุ :</label>
-                       1 {{$products->unit}} 10 กิโลกรัม</div>
                     </div>
                   </div>
                 </div>

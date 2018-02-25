@@ -15,8 +15,8 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li><a href="{{url('/ExportProducts')}}">Export to Excel</a></li>
-          <li><a href="{{url('/pdf')}}">Export to PDF</a></li>
+          <li><a href="{{url('/ExportProducts')}}"><span class="glyphicon glyphicon-file"></span> Export to Excel</a></li>
+          <li><a href="{{url('/pdf')}}"><span class="glyphicon glyphicon-file"></span> Export to PDF</a></li>
         </ul>
       </div>
         <div class="panel panel-primary filterable">

@@ -16,13 +16,13 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li><a href="{{url('/ExportProducts')}}">Export to Excel</a></li>
-          <li><a href="{{url('/pdf')}}">Export to PDF</a></li>
+          <li><a href="{{url('/ExportProducts')}}"><span class="glyphicon glyphicon-file"></span> Export to Excel</a></li>
+          <li><a href="{{url('/pdf')}}"><span class="glyphicon glyphicon-file"></span> Export to PDF</a></li>
         </ul>
       </div>
         <div class="panel panel-primary filterable">
         <div class="panel-heading">
-          <h3 class="panel-title">สินค้าใกล้หมดคลัง</h3>
+          <h3 class="panel-title">สินค้าคงเหลือ</h3>
             <div class="pull-right">
               <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter">
               </span> Filter</button>
@@ -66,13 +66,14 @@
                                     @endforeach  
                                   
                     </table>
-                    </div>
+                    </div> {{ $product->links() }}
                 </div>
-
+               
                 </div>
   <!-- Scripts -->
       <script src="{{ asset('/js/app.js') }}"></script>
       <script src="{{ asset('/js/testfilter.js') }}"></script>
+      <script src="{{ asset('/js/app.js') }}"></script>
       <script src="{{ asset('/js/lightbox.js') }}"></script>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     

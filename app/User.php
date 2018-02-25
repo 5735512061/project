@@ -3,10 +3,19 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-
-class User extends Authenticatable
+//use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+class User extends Model implements Authenticatable
 {
+    use \Illuminate\Auth\Authenticatable;
+    public function chats(){
+        return $this->hasMany('App\chat');
+    }
+    public function likes(){
+        return $this->hasMany('App\like');
+    }
+
     use Notifiable;
 
     /**

@@ -2,33 +2,11 @@
 @section('test')
 
 	@include('navbar')
-	@include('admin.leftmenu')
-
+<br><br><br><br><br><br><br><br>
   <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                  <nav class="navbar navbar-default">
-                      <div class="container-fluid">
-                        <div class="navbar-header">
-                          
-                        </div>
-                        <ul class="nav navbar-nav">
-                            <li><a href="/home1">หน้าแรก</a></li>
-                            @if (!Auth::guest())
-                            <li><a href="/product">คลังสินค้า</a></li>
-                            @endif
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">บทความ</a></li>
-                            <li><a href="#">กระดานถาม-ตอบ</a></li>
-                        </ul>
-                      </div>
-                  </nav>
-
-              </div>
-
+            <div class="panel panel-default">        
                 <div class="panel-body">
                    <div class="container">
             <div class="row">
@@ -40,6 +18,8 @@
                             <div class="form-group">
                               ชื่อผู้ใช้งาน :<input type="text" class="form-control" id="username" name="username" placeholder="ป้อนชื่อผู้ใช้งาน">
                             </div>
+                </div>
+                <div class="col-sm-4">
                             <div class="form-group">
                               สิทธิ์การใช้งาน:<input type="text" class="form-control" id="access" name="access" placeholder="สิทธิ์การใช้งาน">
                             </div>
