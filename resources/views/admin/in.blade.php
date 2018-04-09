@@ -1,7 +1,7 @@
 @extends('admin/template')
 @include('navbar')
 @section('test')
-<br><br><br><br><br><br><br><br>
+<br>
 @if ($errors->any())
   <div class="alert alert-danger">
     <ul>
@@ -19,8 +19,6 @@
     <div class="row">
     <form  action="{{url('/products')}}" method="post" role="form" enctype="multipart/form-data" ng-app="app" ng-controller="form">
                 <div class="col-md-4">
-                          
-                          
                             <div class="form-group">  
                               รหัสสินค้า :<input type="text" class="form-control" id="id" name="id" placeholder="ป้อนรหัสสินค้า">
                             </div>

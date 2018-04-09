@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="/css/bill.css">
 <link href="/css/lightbox.css" rel="stylesheet">
 <script src="/js/lightbox.js"></script>
-<br><br><br><br><br><br><br><br>            
+<br>           
 <?php
         $index = 0;
 ?>
@@ -24,9 +24,7 @@
 
 					<div class="widget-toolbar no-border invoice-info">
 						<span class="invoice-info-label">รหัสบิลสินค้า :</span>
-						<span class="blue">
-						<?php echo (DB::table('users')->where('id',Auth::user()->id)->value('id'));?></span>
-						<br>
+						<span class="blue">{{$id+1}}<br>
 						<span class="invoice-info-label">รหัสลูกค้า :</span>
 						<span class="blue">
 						<?php echo (DB::table('users')->where('id',Auth::user()->id)->value('id'));?>
@@ -38,7 +36,7 @@
 						</span>
 					</div>
 				</div>
-<form action="{{url('/success')}}" method="post">
+<form action="{{url('/paypal')}}" method="post">
 			{{ CSRF_FIELD() }}
 				<div class="widget-body">
 					<div class="widget-main padding-24">

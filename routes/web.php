@@ -25,7 +25,7 @@ Route::get('/piechart', function () {
 });
 
 
-Route::get('/test1', function () {
+Route::get('/test', function () {
     return view('test');
 });
 
@@ -115,8 +115,8 @@ Route::get('/cart','CartsController@cartget');
 Route::get('/cart/{cart_id}','CartsController@destroycart');
 Route::post('/bill','BillsController@bill');
 Route::get('/bill','BillsController@bill');
-Route::post('/success','CartsController@delstore');
-Route::get('/success','CartsController@delstore');
+Route::post('/paypal','CartsController@delstore');
+Route::get('/paypal','CartsController@delstore');
 Route::get('/orderhistory','BillsController@orderhistory');
 //test
 Route::post('/upload','Products\\ProductsController@upload');
@@ -133,19 +133,11 @@ Route::post('change-password', 'Auth\UpdatePasswordController@update')->name('pa
 Route::post('in','Products\\ProductsController@showreport');
 
 Route::get('barcode','ProduitController@index');
-// Route::get('/dashboard', [
-// 		'user' => 'ChatController@getDashboard',
-// 		'as' => 'dashboard',
-// 		'middleware' => 'auth',
-// 	]);
-// Route::post('/createpost', [
-// 		'user' => 'ChatController@postCreatePost',
-// 		'as' => 'post.create',
-// 		'middleware' => 'auth',
-// 	]);
 
 Route::get('/dashboard','ChatController@getDashboard');
 Route::post('/createpost','ChatController@postCreatePost');
 
 Route::post('/top','CartsController@top');
+
+Route::get('/success','Products\\ProductsController@success');
 });

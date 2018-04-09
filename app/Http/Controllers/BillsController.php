@@ -11,6 +11,7 @@ use Session;
 use DB;
 use Auth;
 use Redirect;
+use App\Order;
 
 class BillsController extends Controller
 {
@@ -24,12 +25,14 @@ class BillsController extends Controller
     {
         // $cart = $request->get('carts');
         $total = 0;
+        $id = Order::orderBy('order_id','DESC')->value('order_id');  
         $cart = Cart::where('user_id',Auth::user()->id)->get();
         foreach ($cart as $col) {
             $total += DB::table('products')->where('id',$col->pro_id)->value('pro_sale_price')*$col->amount;
         }
         return view('bill')->with('total',$total)
-                           ->with('cart',$cart);
+                           ->with('cart',$cart)
+                           ->with('id',$id);
     }
 
       public function orderhistory(Request $request)

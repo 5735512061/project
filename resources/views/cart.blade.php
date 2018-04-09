@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="/css/picture.css">
 <link href="/css/lightbox.css" rel="stylesheet">
 <script src="/js/lightbox.js"></script>
-<br><br><br><br><br><br><br><br>            
+<br>          
 	<div class="container">
 	<div class="row">
 	 <?php

@@ -6,7 +6,7 @@
   <link href="/css/lightbox.css" rel="stylesheet">
 
 @include('navbar')
-<br><br><br><br><br><br><br><br>
+<br>
 
 <div class="container">
         <div class="row">
@@ -31,6 +31,7 @@
             <?php
               $index1 = 0;
             ?>
+          <div class="table-responsive">
             <table class="table">
                 <thead>
                         <tr class="filters">
@@ -50,7 +51,7 @@
                                     @foreach($product as $index1 => $index)
                                       <tbody>
                                             <tr>
-                                              <td style="width: 6%">{{$index1+1}}</td>
+                                              <td style="width: 6%">{{$NUM_PAGE*($page-1) + $index1+1}}</td>
                                               <td style="width: 8%"><center>{{$index->id}}</center></td>
                                               <td style="width: 8%"><center>{{$index->pro_name}}</center></td>
                                               <td style="width: 8%"><center>{{$index->pro_type}}</center></td>
@@ -66,6 +67,7 @@
                                     @endforeach  
                                   
                     </table>
+                  </div>
                     </div> {{ $product->links() }}
                 </div>
                

@@ -1,7 +1,7 @@
 @extends('admin/template')
 @section('test')
 @include('navbar')
-<br><br><br><br><br><br><br><br>
+<br>  
 <div class="container">
   <div class="panel-group">
 <div class="panel panel-primary">

@@ -6,7 +6,7 @@
   <link href="/css/lightbox.css" rel="stylesheet">
 
 @include('navbar')
-<br><br><br><br><br><br><br><br>
+<br>
 <div class="container">
     <div class="row">
       <div class="btn-group">
@@ -30,6 +30,7 @@
             <?php
               $index1 = 0;
             ?>
+          <div class="table-responsive">
             <table class="table">
                 <thead>
                         <tr class="filters">
@@ -65,6 +66,7 @@
                                     @endforeach  
                                   
                     </table>
+                  </div>
                     </div>
                 </div>
 

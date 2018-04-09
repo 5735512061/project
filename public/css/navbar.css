@@ -1,10 +1,13 @@
+.badge{
+     background-color: red;
+}
 #flipkart-navbar {
     background-color: #2874f0;
     color: black;
 }
 
 .row1{
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .row2 {
@@ -185,10 +188,10 @@
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 5px 5px 5px 15px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 17px;
+    color: black;
     display: block;
     transition: 0.3s
 }
@@ -197,7 +200,7 @@
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 36px;
+    font-size: 30px;
     margin-left: 50px;
     color: #fff;        
 }
@@ -207,6 +210,6 @@
 }
 
 .sidenav-heading{
-    font-size: 36px;
+    font-size: 20px;
     color: #fff;
 }

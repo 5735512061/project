@@ -21,8 +21,8 @@ p {
 	padding-bottom:7px;
 }
 .middlePage {
-	width: 680px;
-    height: 500px;
+	  max-width: 680px;
+    max-height: 500px;
     position: absolute;
     top:0;
     bottom: 0;

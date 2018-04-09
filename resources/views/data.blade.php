@@ -1,7 +1,7 @@
 @extends('admin/template')
 	<meta charset="UTF-8">
 	@include('navbar')
-<br><br><br><br><br><br><br><br> 
+<br>
     <div class="container">
     <div class="row">
     <div class="panel-group">

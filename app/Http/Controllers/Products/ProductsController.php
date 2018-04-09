@@ -12,6 +12,8 @@ use DB;
 use Storage;
 use putFile;
 use Auth;
+use App\Order;
+
 
 class ProductsController extends Controller
 {
@@ -234,13 +236,13 @@ class ProductsController extends Controller
         $curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
-        $ages = DB::table('products')->paginate($NUM_PAGE);
+        $ages = DB::table('products')->get();
         $expire_count = 0;
         $exp = array();
         foreach ($ages as $col) {
             if ((strtotime($col->pro_ex_date) - strtotime($curr_date)) / (60*60*24) <= 3) array_push($exp, $col);
         }
-        return view('exp')->with('products',$ages)
+        return view('exp')->with('products',$exp)
                           ->with('page',$page)
                           ->with('NUM_PAGE',$NUM_PAGE);
     }
@@ -255,16 +257,43 @@ class ProductsController extends Controller
         
         return View('out_of_stock')->with('products', $out);
     }
-
+        // $amount  = Order::select('order_id', DB::raw('COUNT(amount) as cnt'))
+        //                                        ->groupBy('order_id')
+        //                                        ->orderBy('cnt','DESC')
+        //                                        ->paginate(10);
     public function bestseller(){
-        $seller = array();
-        $amount = DB::table('products')->where('pro_amount', '<', 15)->get();
-        foreach ($amount as $item) {
-            
-            array_push($seller, $item);
+        $amount = Order::select('pro_id', DB::raw('sum(amount) as cnt'))
+                                            ->groupBy('pro_id')
+                                            ->orderBy('cnt','DESC')
+                                            ->paginate(10);
+        $pro_type = DB::table('products')
+                        ->join('orders', 'products.id', '=', 'orders.pro_id')
+                        ->select('products.pro_type', 'orders.amount')
+                        ->get();
+        $vagetable = 0;
+        $fruit = 0;
+        $plant = 0;
+        $dried = 0;
+        $general = 0;
+        for($i=0;$i<count($pro_type);$i++){
+            if($pro_type[$i]->pro_type=="ผัก")
+                $vagetable += $pro_type[$i]->amount;
+            elseif($pro_type[$i]->pro_type=="ผลไม้")
+                $fruit += $pro_type[$i]->amount; 
+            elseif($pro_type[$i]->pro_type=="พืชไร่")
+                $plant += $pro_type[$i]->amount;
+            elseif($pro_type[$i]->pro_type=="ของแห้ง")
+                $dried += $pro_type[$i]->amount;
+            elseif($pro_type[$i]->pro_type=="สินค้าทั่วไป")
+                $general += $pro_type[$i]->amount;    
         }
-        
-        return view('bestseller')->with('products',$seller);
+
+        return view('bestseller')->with('amount',$amount)
+                                 ->with('vagetable',$vagetable)
+                                 ->with('fruit',$fruit)
+                                 ->with('plant',$plant)
+                                 ->with('dried',$dried)
+                                 ->with('general',$general);
     }
     public function balance(Request $request){
         $NUM_PAGE = 10;
@@ -275,25 +304,105 @@ class ProductsController extends Controller
                               ->with('page',$page)
                               ->with('NUM_PAGE',$NUM_PAGE);
     }
-    public function vegetable(){
+    public function vegetable(){ 
+        $curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
+        $ages = DB::table('products')->get();
+        $expire_count = 0;
+        $exp = array();
+        foreach ($ages as $col) {
+            if ((strtotime($col->pro_ex_date) - strtotime($curr_date)) / (60*60*24) >= 0) array_push($exp, $col);
+        }
+        $result = array();
         $product = DB::table('products')->where('pro_type','=','ผัก')->get();
-        return view('product.vegetable')->with('products',$product);
+        foreach ($exp as $date) {
+            foreach ($product as $pro_exp) {
+                if($date->pro_ex_date  == $pro_exp->pro_ex_date &&($date->pro_type==$pro_exp->pro_type))
+                 {   array_push($result, $date);
+                    break;
+                 }
+            }
+        }
+        return view('product.vegetable')->with('products',$result);
     }
     public function fruit(){
+        $curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
+        $ages = DB::table('products')->get();
+        $expire_count = 0;
+        $exp = array();
+        foreach ($ages as $col) {
+            if ((strtotime($col->pro_ex_date) - strtotime($curr_date)) / (60*60*24) >= 0) array_push($exp, $col);
+        }
+        $result = array();
         $product = DB::table('products')->where('pro_type','=','ผลไม้')->get();
-        return view('product.fruit')->with('products',$product);
+        foreach ($exp as $date) {
+            foreach ($product as $pro_exp) {
+                if($date->pro_ex_date  == $pro_exp->pro_ex_date &&($date->pro_type==$pro_exp->pro_type))
+                 {   array_push($result, $date);
+                    break;
+                 }
+            }
+        }
+        return view('product.fruit')->with('products',$result);
     }
     public function plant(){
+        $curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
+        $ages = DB::table('products')->get();
+        $expire_count = 0;
+        $exp = array();
+        foreach ($ages as $col) {
+            if ((strtotime($col->pro_ex_date) - strtotime($curr_date)) / (60*60*24) >= 0) array_push($exp, $col);
+        }
+        $result = array();
         $product = DB::table('products')->where('pro_type','=','พืชไร่')->get();
-        return view('product.plant')->with('products',$product);
+        foreach ($exp as $date) {
+            foreach ($product as $pro_exp) {
+                if($date->pro_ex_date  == $pro_exp->pro_ex_date &&($date->pro_type==$pro_exp->pro_type))
+                 {   array_push($result, $date);
+                    break;
+                 }
+            }
+        }
+        return view('product.plant')->with('products',$result);
     }
     public function dried_food(){
+        $curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
+        $ages = DB::table('products')->get();
+        $expire_count = 0;
+        $exp = array();
+        foreach ($ages as $col) {
+            if ((strtotime($col->pro_ex_date) - strtotime($curr_date)) / (60*60*24) >= 0) array_push($exp, $col);
+        }
+        $result = array();
         $product = DB::table('products')->where('pro_type','=','ของแห้ง')->get();
-        return view('product.dried_food')->with('products',$product);
+        foreach ($exp as $date) {
+            foreach ($product as $pro_exp) {
+                if($date->pro_ex_date  == $pro_exp->pro_ex_date &&($date->pro_type==$pro_exp->pro_type))
+                 {   array_push($result, $date);
+                    break;
+                 }
+            }
+        }
+        return view('product.dried_food')->with('products',$result);
     }
     public function product_general(){
+        $curr_date = $this->curr_raw_time['year'] . '-' . $this->curr_raw_time['mon'] . '-' . $this->curr_raw_time['mday'];
+        $ages = DB::table('products')->get();
+        $expire_count = 0;
+        $exp = array();
+        foreach ($ages as $col) {
+            if ((strtotime($col->pro_ex_date) - strtotime($curr_date)) / (60*60*24) >= 0) array_push($exp, $col);
+        }
+        $result = array();
         $product = DB::table('products')->where('pro_type','=','สินค้าทั่วไป')->get();
-        return view('product.product_general')->with('products',$product);
+        foreach ($exp as $date) {
+            foreach ($product as $pro_exp) {
+                if($date->pro_ex_date  == $pro_exp->pro_ex_date &&($date->pro_type==$pro_exp->pro_type))
+                 {   array_push($result, $date);
+                    break;
+                 }
+            }
+        }
+        return view('product.product_general')->with('products',$result);
     }
 
     public function upload(Request $request)
@@ -344,6 +453,10 @@ class ProductsController extends Controller
             Product::destroy($id);
         }
         return Redirect::back();
+    }
+    public function success(){
+        DB::table('carts')->where('user_id',Auth::user()->id)->delete();
+        return view('/success');
     }
 
 }

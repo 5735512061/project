@@ -4,9 +4,10 @@
   <link rel="stylesheet" type="text/css" href="/css/image.css">
   <link rel="stylesheet" type="text/css" href="/css/picture.css">
 @include('navbar')  
-<br><br><br><br><br><br><br><br>
+<br>
 <div class="container">
-  <div class="row" align="center"> 
+  <div class="row" align="center">
+
             @foreach($products as $index => $col)
             <form action="{{url('buystore')}}/{{$col->id}}" method="post" accept-charset="utf-8">
            	{{csrf_field()}}
